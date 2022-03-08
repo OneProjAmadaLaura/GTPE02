@@ -369,10 +369,10 @@ app.get('/documentos-contrato', verificaToken, (req, res) => {
 /****************************************************************************
  * Edición de documento de Vehículo Registro
  ****************************************************************************/
-app.post('/documento-digitaliacion', verificaToken, upload.single('Documento'), (req, res) => {
+app.post('/documento-digitalizacion', verificaToken, upload.single('Documento'), (req, res) => {
     try {
 
-        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: documento-digitaliacion';
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: documento-digitalizacion';
         logger.info(etiquetaLOG);
 
         // Del token
@@ -387,9 +387,6 @@ app.post('/documento-digitaliacion', verificaToken, upload.single('Documento'), 
             IdVehiculo: body.IdVehiculo || 0,
             IdDocumento: body.IdDocumento || 0
         });
-        logger.info('body--->');
-        logger.info(JSON.stringify(body));
-
 
         if (documentoModel.IdVehiculo == 0 || documentoModel.IdDocumento == 0 || documentoModel.IdConcesionario == 0) {
             mensaje = 'Verifique la información requerida.';

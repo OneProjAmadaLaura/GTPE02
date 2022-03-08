@@ -775,6 +775,204 @@ function edicionOperador(entrada) {
     });
 }
 
+/* ********** Cambio del Estatus del Operador ********** */
+function cambioEstatusOperador(entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${entrada.IdUsuario}] FUNCION: cambioEstatusOperador `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+
+        let estatus = false;
+        let mensaje = '';
+        let mensajeDet = '';
+
+        BdCambioEstatusOperador(entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                estatus = datos[0].resultado;
+                mensaje = datos[0].mensaje;
+                mensajeDet = datos[0].mensajeDet;
+
+                resul = {
+                    estatus,
+                    mensaje,
+                    mensajeDet
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error al editar al Operador: ${err}`);
+    });
+}
+
+/* ********** busqueda de Operador por RFC   ********** */
+function consultaOperadorRFC(entrada) {
+    let etiquetaLOG = ruta + ' FUNCION: consultaOperadorRFC';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let operador = [];
+        let numReg = 0;
+
+        BdConsultaOperadorRFC(entrada.RFC, entrada.IdUsuario)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                numReg = datos.length;
+
+                if (numReg > 0) {
+                    let datOperador = new PersonaModel({
+                        IdOperador: datos[0].IdOperador,
+                        Nombre: datos[0].Nombre,
+                        Paterno: datos[0].Paterno,
+                        Materno: datos[0].Materno,
+                        RFC: datos[0].RFC,
+                        CURP: datos[0].CURP,
+                        IdIdentificacion: datos[0].IdIdentificacion,
+                        FolioIdentificacion: datos[0].FolioIdentificacion,
+                        FechaNacimiento: datos[0].FechaNacimiento,
+                        TipoPersona: datos[0].TipoPersona,
+                        Genero: datos[0].Genero,
+                        EstadoCivil: datos[0].EstadoCivil,
+                        Calle: datos[0].Calle,
+                        Exterior: datos[0].Exterior,
+                        Interior: datos[0].Interior,
+                        IdColonia: datos[0].IdColonia,
+                        Colonia: datos[0].Colonia,
+                        CP: datos[0].CP,
+                        EntidadFederativa: datos[0].EntidadFederativa,
+                        Municipio: datos[0].Municipio,
+                        Telefono: datos[0].Telefono,
+                        Celular: datos[0].Celular,
+                        email: datos[0].email,
+                        Licencia: datos[0].Licencia
+
+                    });
+                    operador.push(datOperador);
+
+                } else {
+                    let datOperador = new PersonaModel({
+                        IdOperador: 0
+                    });
+
+                    operador.push(datOperador);
+
+                }
+
+                resul = {
+                    estatus: true,
+                    mensaje: 'Consulta exitosa',
+                    operador
+                }
+
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al consultar al Operador por RFC: ${err}`);
+    });
+}
+
+/* ********** busqueda de Concesionario por RFC   ********** */
+function consultaOperadoresVehiculo(entrada) {
+    let etiquetaLOG = ruta + ' FUNCION: consultaOperadoresVehiculo';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let operadores = [];
+        let numReg = 0;
+
+        BdConsultaOperadoresVehiculos(entrada.IdVehiculo, entrada.IdUsuario)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                numReg = datos.length;
+
+                if (numReg > 0) {
+
+                    for (i = 0; i < numReg; i++) {
+
+                        const operador = new PersonaModel({
+                            IdOperador: datos[i].IdOperador,
+                            Nombre: datos[i].Nombre,
+                            Paterno: datos[i].Paterno,
+                            Materno: datos[i].Materno,
+                            RFC: datos[i].RFC,
+                            CURP: datos[i].CURP,
+                            IdIdentificacion: datos[i].IdIdentificacion,
+                            FolioIdentificacion: datos[i].FolioIdentificacion,
+                            FechaNacimiento: datos[i].FechaNacimiento,
+                            TipoPersona: datos[i].TipoPersona,
+                            Genero: datos[i].Genero,
+                            EstadoCivil: datos[i].EstadoCivil,
+                            Calle: datos[i].Calle,
+                            Exterior: datos[i].Exterior,
+                            Interior: datos[i].Interior,
+                            IdColonia: datos[i].IdColonia,
+                            Colonia: datos[i].Colonia,
+                            CP: datos[i].CP,
+                            EntidadFederativa: datos[i].EntidadFederativa,
+                            Municipio: datos[i].Municipio,
+                            Telefono: datos[i].Telefono,
+                            Celular: datos[i].Celular,
+                            email: datos[i].email,
+                            Licencia: datos[i].Licencia,
+                            Estatus: datos[i].Estatus
+                        });
+
+                        operadores.push(operador);
+
+                    }
+
+                }
+                resul = {
+                    estatus: true,
+                    mensaje: 'Consulta exitosa',
+                    operadores
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al consultar los Concesionarios del Vehículo indicado: ${err}`);
+    });
+}
+
 
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
@@ -1125,6 +1323,121 @@ function BdEditaOperador(Entrada) {
 
 }
 
+function BdCambioEstatusOperador(Entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario}] METODO: BdCambioEstatusOperador `;
+    logger.info(etiquetaLOG);
+
+    let query_str = '';
+
+    query_str = `CALL spOperadorEstatus(
+    ${utils.paramSP(Entrada.IdOperador,'N')},  
+    ${utils.paramSP(Entrada.IdVehiculo,'N')},
+    ${utils.paramSP(Entrada.Estatus,'S')}
+    )`;
+    logger.info('query_str');
+    logger.info(query_str);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        con.query(query_str, function(err, rows) {
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+
+        throw (`Se presentó un error en BdCambioEstatusOperador: ${err}`);
+    });
+
+}
+
+/****************************************************************/
+function BdConsultaOperadorRFC(RFC, Usuario) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BdConsultaOperadorRFC `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        var query_str = `CALL spConsultaOperadorRFC('${RFC}')`;
+
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdConsultaOperadorRFC: ${err}`);
+    });
+
+}
+
+/****************************************************************/
+function BdConsultaOperadoresVehiculos(IdVehiculo, Usuario) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BdConsultaOperadoresVehiculos `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        var query_str = `CALL spConsultaOperadores(${IdVehiculo})`;
+
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdConsultaOperadoresVehiculos: ${err}`);
+    });
+
+}
+
+
 
 module.exports = {
     consultaConcesionarioRFC,
@@ -1136,5 +1449,8 @@ module.exports = {
     consultaPropietarioVehiculo,
     consultaConcesionarioReg,
     consultaConcesionarioVerifica,
-    edicionOperador
+    edicionOperador,
+    cambioEstatusOperador,
+    consultaOperadorRFC,
+    consultaOperadoresVehiculo
 };

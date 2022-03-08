@@ -124,7 +124,6 @@ function consultaDocumentosRegistro(entrada) {
                 let resultado = JSON.stringify(rows);
                 let datos = JSON.parse(resultado);
 
-
                 numReg = datos.length;
 
                 if (numReg > 0) {
@@ -137,7 +136,7 @@ function consultaDocumentosRegistro(entrada) {
                             NombreArchivo: datos[i].NombreArchivo,
                             Faltante: datos[i].Faltante,
                             Revisado: datos[i].Revisado,
-                            Correcto: (datos[i].Correcto = 1) ? true : false,
+                            Correcto: (datos[i].Correcto == true) ? true : false,
                             Observaciones: datos[i].Observaciones
                         });
 

@@ -7,7 +7,6 @@ const { verificaToken } = require('../middleware/autenticacion');
 
 const { ParametrosModel } = require('../models/parametros.model');
 const { PersonaModel } = require('../models/persona.model');
-const { VehiculoModel } = require('../models/vehiculo.model');
 
 const persona = require('../dao/persona.dao');
 const contrato = require('../dao/contrato.dao');
@@ -264,7 +263,7 @@ app.post('/operador-edicion', verificaToken, (req, res) => {
         logger.info(JSON.stringify(personaModel));
 
         if (personaModel.Nombre == '' || personaModel.RFC == '' || personaModel.TipoPersona == '' || personaModel.Genero == '' ||
-            personaModel.IdVehiculo == 0, personaModel.IdConcesionario == 0) {
+            personaModel.IdVehiculo == 0 || personaModel.IdConcesionario == 0) {
             mensaje = 'Verifique la información requerida.';
             logger.info(ruta + 'Atención: ' + mensaje);
             res.json({
@@ -323,7 +322,7 @@ app.post('/operador-edicion', verificaToken, (req, res) => {
 });
 
 /****************************************************************************
- * Edición - Operador
+ * Cambio de estatus - Operador
  ****************************************************************************/
 app.post('/operador-estatus', verificaToken, (req, res) => {
     try {
@@ -348,8 +347,7 @@ app.post('/operador-estatus', verificaToken, (req, res) => {
         logger.info('Datos de entrada');
         logger.info(JSON.stringify(personaModel));
 
-        if (personaModel.Nombre == '' || personaModel.RFC == '' || personaModel.TipoPersona == '' || personaModel.Genero == '' ||
-            personaModel.IdVehiculo == 0, personaModel.IdConcesionario == 0) {
+        if (personaModel.IdVehiculo == 0 || personaModel.IdOperador == 0 || personaModel.Estatus == '') {
             mensaje = 'Verifique la información requerida.';
             logger.info(ruta + 'Atención: ' + mensaje);
             res.json({
@@ -357,7 +355,7 @@ app.post('/operador-estatus', verificaToken, (req, res) => {
                 mensaje
             });
         } else {
-            persona.edicionOperador(personaModel)
+            persona.cambioEstatusOperador(personaModel)
                 .then(result => {
 
                     let resultado = JSON.stringify(result);
@@ -365,7 +363,6 @@ app.post('/operador-estatus', verificaToken, (req, res) => {
 
                     ok = datos.estatus;
                     mensaje = datos.mensaje + ' ' + datos.mensajeDet;
-                    IdOperador = datos.IdOperador;
 
                     if (!ok) {
 
@@ -375,8 +372,7 @@ app.post('/operador-estatus', verificaToken, (req, res) => {
 
                     res.json({
                         estatus: ok,
-                        mensaje: datos.mensaje + ' ' + datos.mensajeDet,
-                        IdOperador
+                        mensaje: datos.mensaje + ' ' + datos.mensajeDet
                     });
 
                 }, (err) => {
@@ -393,6 +389,157 @@ app.post('/operador-estatus', verificaToken, (req, res) => {
                         error: err.message
                     });
                 }));
+
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false,
+            error: err.message
+        });
+
+    }
+});
+
+/****************************************************************************
+ * Operadore por RFC
+ ****************************************************************************/
+app.get('/operador-rfc', verificaToken, (req, res) => {
+
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: operador-rfc';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        const parametrosModel = new ParametrosModel({
+            IdUsuario: pUsuarioOperacion || '',
+            RFC: req.query.RFC || ''
+        });
+
+        if (parametrosModel.RFC == '') {
+            mensaje = 'El RFC es requerido.';
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+            persona.consultaOperadorRFC(parametrosModel)
+                .then(result => {
+                    let resultado = JSON.stringify(result);
+                    let datos = JSON.parse(resultado);
+
+                    ok = datos.estatus;
+                    mensaje = datos.mensaje;
+
+                    if (ok) {
+
+                        res.json({
+                            estatus: true,
+                            mensaje,
+                            operador: datos.operador
+                        });
+
+                    } else {
+
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                        res.json({
+                            estatus: false,
+                            mensaje
+                        });
+                    }
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                })
+
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false,
+            error: err.message
+        });
+
+    }
+});
+
+/****************************************************************************
+ * Operadores de un Vehículo
+ ****************************************************************************/
+app.get('/operadores-vehiculo', verificaToken, (req, res) => {
+
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: operadores-vehiculo';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        const parametrosModel = new ParametrosModel({
+            IdUsuario: pUsuarioOperacion || '',
+            IdVehiculo: req.query.IdVehiculo || ''
+        });
+
+        if (parametrosModel.IdVehiculo == '') {
+            mensaje = 'El IdVehiculo es requerido.';
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+            persona.consultaOperadoresVehiculo(parametrosModel)
+                .then(result => {
+                    let resultado = JSON.stringify(result);
+                    let datos = JSON.parse(resultado);
+
+                    ok = datos.estatus;
+                    mensaje = datos.mensaje;
+
+                    if (ok) {
+
+                        res.json({
+                            estatus: true,
+                            mensaje,
+                            operadores: datos.operadores
+                        });
+
+                    } else {
+
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                        res.json({
+                            estatus: false,
+                            mensaje,
+                            operadores: []
+                        });
+                    }
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                })
 
         }
 
