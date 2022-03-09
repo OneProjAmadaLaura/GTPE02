@@ -4,3 +4,1564 @@
 2022-03-07 11:39:11 info:  [login.dao.js] [Usuario: Administrador] METODO: BdObtenerUsuario 
 2022-03-07 11:39:21 error: Se presentó un error en BdObtenerUsuario: Error: connect ETIMEDOUT
 2022-03-07 11:39:21 error:  [login.js] ERROR: Se presentó un error en validarContrasenia: Se presentó un error en BdObtenerUsuario: Error: connect ETIMEDOUT
+2022-03-07 12:54:54 info:  [login.js]  METODO: Login
+2022-03-07 12:54:54 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Administrador
+2022-03-07 12:54:54 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-07 12:54:54 info:  [login.dao.js] [Usuario: Administrador] METODO: BdObtenerUsuario 
+2022-03-07 12:54:55 info:  [login.dao.js] [Usuario: Administrador] METODO: BdObtenerMenu 
+2022-03-07 12:54:55 info: query_str====================================>
+2022-03-07 12:54:55 info: CALL spConsultaMenu(1)
+2022-03-07 12:54:55 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-07 12:54:55 info:  [login.dao.js] [Usuario: Administrador] METODO: BdObtenerPrivilegios 
+2022-03-07 12:54:55 info: query_str====================================>
+2022-03-07 12:54:55 info: CALL spConsultaPrivilegiosPagina(1)
+2022-03-07 12:54:55 info: hash------------------------------->
+2022-03-07 12:54:55 info: $2b$10$dFXx8gUh/1jEzheiw0wsTuNE0E9GHIf588dtbVACDmETOKSpbrTX2
+2022-03-07 12:54:55 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-07 14:17:27 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:17:27 info: Datos de entrada
+2022-03-07 14:17:27 info: {"IdUsuario":"JLOPEZ","IdPersona":0,"Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":0,"Licencia":"LICENCIA11233"}
+2022-03-07 14:17:27 info:  [registro.js] Atención: Verifique la información requerida.
+2022-03-07 14:17:40 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:17:40 info: Datos de entrada
+2022-03-07 14:17:40 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":0,"Licencia":"LICENCIA11233"}
+2022-03-07 14:17:40 info:  [registro.js] Atención: Verifique la información requerida.
+2022-03-07 14:18:09 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:18:09 info: Datos de entrada
+2022-03-07 14:18:09 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:18:09 error:  [registro.js] ERROR: ReferenceError: Entrada is not defined
+2022-03-07 14:19:05 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:19:05 info: Datos de entrada
+2022-03-07 14:19:05 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:19:05 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:19:05 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:19:05 info: undefined
+2022-03-07 14:19:05 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:19:05 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:20:34 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:20:34 info: Datos de entrada
+2022-03-07 14:20:34 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:20:34 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:20:34 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:20:34 info: undefined
+2022-03-07 14:20:34 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:20:34 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:22:43 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:22:43 info: Datos de entrada
+2022-03-07 14:22:43 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:22:43 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:22:43 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:22:43 info: query_str
+2022-03-07 14:22:43 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 14:22:43 info: undefined
+2022-03-07 14:22:43 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:22:43 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:24:56 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:24:56 info: Datos de entrada
+2022-03-07 14:24:56 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:24:56 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:24:56 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:24:56 info: query_str
+2022-03-07 14:24:56 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 14:24:57 info: undefined
+2022-03-07 14:24:57 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:24:57 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:25:46 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:25:46 info: Datos de entrada
+2022-03-07 14:25:46 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:25:46 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:25:46 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:25:46 info: query_str
+2022-03-07 14:25:46 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 14:25:46 info: undefined
+2022-03-07 14:25:46 info: Errror
+2022-03-07 14:25:46 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:25:46 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:25:58 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:25:58 info: Datos de entrada
+2022-03-07 14:25:58 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:25:58 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:25:58 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:25:58 info: query_str
+2022-03-07 14:25:58 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 14:25:58 info: undefined
+2022-03-07 14:25:58 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:25:58 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:29:03 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 14:29:03 info: Datos de entrada
+2022-03-07 14:29:03 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 14:29:03 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 14:29:03 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 14:29:03 info: query_str
+2022-03-07 14:29:03 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 14:29:03 info: undefined
+2022-03-07 14:29:03 info: Errrordddd
+2022-03-07 14:29:03 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 14:29:03 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:09:40 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:09:40 info: Datos de entrada
+2022-03-07 16:09:40 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:09:40 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:09:40 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:09:40 info: query_str
+2022-03-07 16:09:40 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:09:40 info: undefined
+2022-03-07 16:09:40 info: Errrordddd
+2022-03-07 16:09:40 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:09:40 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:11:09 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:11:09 info: Datos de entrada
+2022-03-07 16:11:09 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:11:09 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:11:09 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:11:09 info: query_str
+2022-03-07 16:11:09 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:11:09 info: undefined
+2022-03-07 16:11:09 info: err
+2022-03-07 16:11:09 info: Cannot read property 'constructor' of undefined
+2022-03-07 16:11:09 info: Errrordddd
+2022-03-07 16:11:09 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:11:09 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:14:10 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:14:10 info: Datos de entrada
+2022-03-07 16:14:10 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:14:10 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:14:10 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:14:10 info: query_str
+2022-03-07 16:14:10 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:14:10 info: undefined
+2022-03-07 16:14:10 info: err
+2022-03-07 16:14:10 info: Cannot read property 'constructor' of undefined
+2022-03-07 16:14:10 info: Errrordddd
+2022-03-07 16:14:10 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:14:10 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:14:46 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:14:46 info: Datos de entrada
+2022-03-07 16:14:46 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:14:46 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:14:46 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:14:46 info: query_str
+2022-03-07 16:14:46 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:14:46 info: undefined
+2022-03-07 16:14:46 info: err
+2022-03-07 16:14:46 info: Cannot read property 'constructor' of undefined
+2022-03-07 16:14:46 info: Errrordddd
+2022-03-07 16:14:46 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:14:46 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:15:42 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:15:42 info: Datos de entrada
+2022-03-07 16:15:42 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:15:42 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:15:42 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:15:42 info: query_str
+2022-03-07 16:15:42 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:15:42 info: undefined
+2022-03-07 16:15:42 info: err
+2022-03-07 16:15:42 info: Cannot read property 'constructor' of undefined
+2022-03-07 16:15:42 info: Errrordddd
+2022-03-07 16:15:42 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:15:42 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:16:27 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:16:27 info: Datos de entrada
+2022-03-07 16:16:27 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:16:27 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:16:27 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:16:27 info: query_str
+2022-03-07 16:16:27 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:16:27 info: undefined
+2022-03-07 16:16:27 info: err
+2022-03-07 16:16:27 info: Cannot read property 'constructor' of undefined
+2022-03-07 16:16:27 info: Errrordddd
+2022-03-07 16:16:27 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:16:27 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:17:40 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:17:40 info: Datos de entrada
+2022-03-07 16:17:40 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:17:40 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:17:40 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:17:40 info: query_str
+2022-03-07 16:17:40 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:17:40 info: undefined
+2022-03-07 16:17:40 info: err
+2022-03-07 16:17:40 info: Cannot read property 'constructor' of undefined
+2022-03-07 16:17:40 info: Errrordddd
+2022-03-07 16:17:40 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:17:40 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:18:14 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:18:14 info: Datos de entrada
+2022-03-07 16:18:14 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11233"}
+2022-03-07 16:18:14 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:18:14 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:18:14 info: query_str
+2022-03-07 16:18:14 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11233'
+    )
+2022-03-07 16:18:14 info: undefined
+2022-03-07 16:18:14 info: Errrordddd
+2022-03-07 16:18:14 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:18:14 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:18:55 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:18:55 info: Datos de entrada
+2022-03-07 16:18:55 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11"}
+2022-03-07 16:18:55 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:18:55 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:18:55 info: query_str
+2022-03-07 16:18:55 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:18:55 info: undefined
+2022-03-07 16:18:55 info: Errrordddd
+2022-03-07 16:18:55 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:18:55 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:19:05 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:19:05 info: Datos de entrada
+2022-03-07 16:19:05 info: {"IdUsuario":"JLOPEZ","IdPersona":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","Licencia":"LICENCIA11"}
+2022-03-07 16:19:05 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:19:05 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:19:05 info: query_str
+2022-03-07 16:19:05 info: CALL spOperador(
+    259,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:19:05 info: undefined
+2022-03-07 16:19:05 info: Errrordddd
+2022-03-07 16:19:05 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:19:05 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:21:31 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:21:31 info: Datos de entrada
+2022-03-07 16:21:31 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:21:31 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:21:31 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:21:31 info: query_str
+2022-03-07 16:21:31 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:21:31 info: undefined
+2022-03-07 16:21:31 info: Errrordddd
+2022-03-07 16:21:31 error: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:21:31 error:  [registro.js] ERROR: Se presentó un error al editar al Operador: Se presentó un error en BdEditaOperador: TypeError: Cannot read property 'constructor' of undefined
+2022-03-07 16:25:00 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:25:00 info: Datos de entrada
+2022-03-07 16:25:00 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:25:00 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:25:00 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:25:00 info: query_str
+2022-03-07 16:25:00 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:25:00 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:25:00 info: Errror
+2022-03-07 16:25:00 info: rows
+2022-03-07 16:25:00 info: [object Object],[object Object]
+2022-03-07 16:25:00 info: rows
+2022-03-07 16:25:00 info: [object Object]
+2022-03-07 16:25:00 info: [{"resultado":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}]
+2022-03-07 16:25:00 info: result
+2022-03-07 16:25:00 info: [object Object]
+2022-03-07 16:25:00 info: {}
+2022-03-07 16:25:00 info:  [registro.js] Atención: undefined undefined
+2022-03-07 16:27:30 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:27:30 info: Datos de entrada
+2022-03-07 16:27:30 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:27:30 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:27:30 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:27:30 info: query_str
+2022-03-07 16:27:30 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:27:30 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:27:30 info: Errror
+2022-03-07 16:27:30 info: rows
+2022-03-07 16:27:30 info: [object Object],[object Object]
+2022-03-07 16:27:30 info: rows
+2022-03-07 16:27:30 info: [object Object]
+2022-03-07 16:27:30 info: [{"resultado":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}]
+2022-03-07 16:27:30 info: result
+2022-03-07 16:27:30 info: [object Object]
+2022-03-07 16:27:30 info: {}
+2022-03-07 16:27:30 info:  [registro.js] Atención: undefined undefined
+2022-03-07 16:28:21 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:28:21 info: Datos de entrada
+2022-03-07 16:28:21 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:28:21 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:28:21 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:28:21 info: query_str
+2022-03-07 16:28:21 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:28:21 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:28:21 info: Errror
+2022-03-07 16:28:21 info: rows
+2022-03-07 16:28:21 info: [[{"resultado":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}],{"fieldCount":0,"affectedRows":0,"insertId":0,"info":"","serverStatus":16386,"warningStatus":17}]
+2022-03-07 16:28:21 info: rows
+2022-03-07 16:28:21 info: [object Object]
+2022-03-07 16:28:21 info: [{"resultado":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}]
+2022-03-07 16:28:21 info: result
+2022-03-07 16:28:21 info: [object Object]
+2022-03-07 16:28:21 info: {}
+2022-03-07 16:28:21 info:  [registro.js] Atención: undefined undefined
+2022-03-07 16:30:26 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:30:26 info: Datos de entrada
+2022-03-07 16:30:26 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:30:26 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:30:26 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:30:26 info: query_str
+2022-03-07 16:30:26 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:30:26 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:30:26 info: Errror
+2022-03-07 16:30:26 info: rows
+2022-03-07 16:30:26 info: [[{"resultado":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}],{"fieldCount":0,"affectedRows":0,"insertId":0,"info":"","serverStatus":16386,"warningStatus":17}]
+2022-03-07 16:30:26 info: rows
+2022-03-07 16:30:26 info: [object Object]
+2022-03-07 16:30:26 info: [{"resultado":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}]
+2022-03-07 16:30:26 info: result
+2022-03-07 16:30:26 info: [object Object]
+2022-03-07 16:30:26 info: {"estatus":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}
+2022-03-07 16:30:26 info:  [registro.js] Atención: No se puede editar al operador, verifique el estatus del vehículo. 
+2022-03-07 16:32:04 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:32:04 info: Datos de entrada
+2022-03-07 16:32:04 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:32:04 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:32:04 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:32:04 info: query_str
+2022-03-07 16:32:04 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:32:04 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:32:04 info: result
+2022-03-07 16:32:04 info: [object Object]
+2022-03-07 16:32:04 info: {"estatus":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}
+2022-03-07 16:32:04 info:  [registro.js] Atención: No se puede editar al operador, verifique el estatus del vehículo. 
+2022-03-07 16:33:05 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:33:05 info: Datos de entrada
+2022-03-07 16:33:05 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:33:05 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:33:05 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:33:05 info: query_str
+2022-03-07 16:33:05 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:33:05 info: result
+2022-03-07 16:33:05 info: [object Object]
+2022-03-07 16:33:05 info: {"estatus":0,"mensaje":"No se puede editar al operador, verifique el estatus del vehículo.","mensajeDet":"","IdOperador":0}
+2022-03-07 16:33:05 info:  [registro.js] Atención: No se puede editar al operador, verifique el estatus del vehículo. 
+2022-03-07 16:34:34 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:34:34 info: Datos de entrada
+2022-03-07 16:34:34 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:34:34 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:34:34 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:34:34 info: query_str
+2022-03-07 16:34:34 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:34:35 info:  [registro.js] Atención: No se puede editar al operador, verifique el estatus del vehículo. 
+2022-03-07 16:43:57 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documento-verificacion
+2022-03-07 16:43:57 info: documentoModel--->
+2022-03-07 16:43:57 info: {"IdUsuario":"JLOPEZ","IdDocumento":"2","IdConcesionario":"259","IdVehiculo":"181","Correcto":"1","Observaciones":""}
+2022-03-07 16:43:57 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: verificaDocumento 
+2022-03-07 16:43:57 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdVerificaDocumento 
+2022-03-07 16:43:57 info: CALL spDocumentoCalificar(
+        259,  
+        181,  
+        2, 
+        'JLOPEZ',
+        1,
+        NULL
+        )
+2022-03-07 16:44:11 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documento-verificacion
+2022-03-07 16:44:11 info: documentoModel--->
+2022-03-07 16:44:11 info: {"IdUsuario":"JLOPEZ","IdDocumento":"5","IdConcesionario":"259","IdVehiculo":"181","Correcto":"1","Observaciones":""}
+2022-03-07 16:44:11 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: verificaDocumento 
+2022-03-07 16:44:11 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdVerificaDocumento 
+2022-03-07 16:44:11 info: CALL spDocumentoCalificar(
+        259,  
+        181,  
+        5, 
+        'JLOPEZ',
+        1,
+        NULL
+        )
+2022-03-07 16:44:15 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documento-verificacion
+2022-03-07 16:44:15 info: documentoModel--->
+2022-03-07 16:44:15 info: {"IdUsuario":"JLOPEZ","IdDocumento":"4","IdConcesionario":"259","IdVehiculo":"181","Correcto":"1","Observaciones":""}
+2022-03-07 16:44:15 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: verificaDocumento 
+2022-03-07 16:44:15 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdVerificaDocumento 
+2022-03-07 16:44:15 info: CALL spDocumentoCalificar(
+        259,  
+        181,  
+        4, 
+        'JLOPEZ',
+        1,
+        NULL
+        )
+2022-03-07 16:44:19 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documento-verificacion
+2022-03-07 16:44:19 info: documentoModel--->
+2022-03-07 16:44:19 info: {"IdUsuario":"JLOPEZ","IdDocumento":"3","IdConcesionario":"259","IdVehiculo":"181","Correcto":"1","Observaciones":""}
+2022-03-07 16:44:19 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: verificaDocumento 
+2022-03-07 16:44:19 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdVerificaDocumento 
+2022-03-07 16:44:19 info: CALL spDocumentoCalificar(
+        259,  
+        181,  
+        3, 
+        'JLOPEZ',
+        1,
+        NULL
+        )
+2022-03-07 16:44:23 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documento-verificacion
+2022-03-07 16:44:23 info: documentoModel--->
+2022-03-07 16:44:23 info: {"IdUsuario":"JLOPEZ","IdDocumento":"1","IdConcesionario":"259","IdVehiculo":"181","Correcto":"1","Observaciones":""}
+2022-03-07 16:44:23 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: verificaDocumento 
+2022-03-07 16:44:23 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdVerificaDocumento 
+2022-03-07 16:44:23 info: CALL spDocumentoCalificar(
+        259,  
+        181,  
+        1, 
+        'JLOPEZ',
+        1,
+        NULL
+        )
+2022-03-07 16:45:55 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:45:55 info: Datos de entrada
+2022-03-07 16:45:55 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:45:55 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:45:55 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:45:55 info: query_str
+2022-03-07 16:45:55 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:45:55 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Unknown column 'vEstatusDocumentacion' in 'field list'
+2022-03-07 16:47:28 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:47:28 info: Datos de entrada
+2022-03-07 16:47:28 info: {"IdUsuario":"JLOPEZ","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:47:28 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:47:28 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:47:28 info: query_str
+2022-03-07 16:47:28 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    NULL,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:47:28 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Column 'IdConcesionario' cannot be null
+2022-03-07 16:50:16 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:50:16 info: Datos de entrada
+2022-03-07 16:50:16 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:50:16 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:50:16 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:50:16 info: query_str
+2022-03-07 16:50:16 info: CALL spOperador(
+    NULL,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:51:09 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:51:09 info: Datos de entrada
+2022-03-07 16:51:09 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LINDA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A2","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:51:09 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:51:09 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:51:09 info: query_str
+2022-03-07 16:51:09 info: CALL spOperador(
+    NULL,  
+    'LINDA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A2',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:51:23 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:51:23 info: Datos de entrada
+2022-03-07 16:51:23 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LULU","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A1","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:51:23 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:51:23 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:51:23 info: query_str
+2022-03-07 16:51:23 info: CALL spOperador(
+    NULL,  
+    'LULU', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A1',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:51:34 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:51:34 info: Datos de entrada
+2022-03-07 16:51:34 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 16:51:34 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:51:34 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:51:34 info: query_str
+2022-03-07 16:51:34 info: CALL spOperador(
+    NULL,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:51:34 info:  [registro.js] Atención: Un vehículo no puede tener más de tres operadores. 
+2022-03-07 16:53:09 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:53:09 info: Datos de entrada
+2022-03-07 16:53:09 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 16:53:09 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:53:09 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:53:09 info: query_str
+2022-03-07 16:53:09 info: CALL spOperador(
+    NULL,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:53:09 info:  [registro.js] Atención: Un vehículo no puede tener más de tres operadores. 
+2022-03-07 16:53:17 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:53:17 info: Datos de entrada
+2022-03-07 16:53:17 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 16:53:17 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:53:17 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:53:17 info: query_str
+2022-03-07 16:53:17 info: CALL spOperador(
+    NULL,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:53:17 info:  [registro.js] Atención: Un vehículo no puede tener más de tres operadores. 
+2022-03-07 16:54:21 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 16:54:21 info: Datos de entrada
+2022-03-07 16:54:21 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 16:54:21 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 16:54:21 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 16:54:21 info: query_str
+2022-03-07 16:54:21 info: CALL spOperador(
+    272,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 16:54:21 info:  [registro.js] Atención: Un vehículo no puede tener más de tres operadores. 
+2022-03-07 17:11:59 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:11:59 info: Datos de entrada
+2022-03-07 17:11:59 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 17:11:59 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:11:59 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:11:59 info: query_str
+2022-03-07 17:11:59 info: CALL spOperador(
+    272,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:11:59 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Unknown column 'vIdConcesionario' in 'where clause'
+2022-03-07 17:13:09 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:13:09 info: Datos de entrada
+2022-03-07 17:13:09 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 17:13:09 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:13:09 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:13:09 info: query_str
+2022-03-07 17:13:09 info: CALL spOperador(
+    272,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:13:10 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Unknown column 'IdOperador' in 'field list'
+2022-03-07 17:13:45 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:13:45 info: Datos de entrada
+2022-03-07 17:13:45 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 17:13:45 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:13:45 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:13:45 info: query_str
+2022-03-07 17:13:45 info: CALL spOperador(
+    272,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:13:45 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Unknown column 'IdOperador' in 'field list'
+2022-03-07 17:16:26 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:16:26 info: Datos de entrada
+2022-03-07 17:16:26 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 17:16:26 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:16:26 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:16:26 info: query_str
+2022-03-07 17:16:26 info: CALL spOperador(
+    272,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:16:26 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Unknown column 'pEstatus' in 'field list'
+2022-03-07 17:17:08 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:17:08 info: Datos de entrada
+2022-03-07 17:17:08 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"111111","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-07 17:17:08 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:17:08 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:17:08 info: query_str
+2022-03-07 17:17:08 info: CALL spOperador(
+    272,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '111111',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:17:50 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:17:50 info: Datos de entrada
+2022-03-07 17:17:50 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"271","Licencia":"LICENCIA11"}
+2022-03-07 17:17:50 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:17:50 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:17:50 info: query_str
+2022-03-07 17:17:50 info: CALL spOperador(
+    271,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:17:51 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Duplicate entry 'LOLL0101011A0' for key 'personas.RFC_UNIQUE'
+2022-03-07 17:18:23 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:18:23 info: Datos de entrada
+2022-03-07 17:18:23 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A2","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"271","Licencia":"LICENCIA11"}
+2022-03-07 17:18:23 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:18:23 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:18:23 info: query_str
+2022-03-07 17:18:23 info: CALL spOperador(
+    271,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A2',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:19:10 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-07 17:19:10 info: Datos de entrada
+2022-03-07 17:19:10 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A1","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-07 17:19:10 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-07 17:19:10 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-07 17:19:10 info: query_str
+2022-03-07 17:19:10 info: CALL spOperador(
+    NULL,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A1',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-07 17:19:10 info:  [registro.js] Atención: Un vehículo no puede tener más de tres operadores. 

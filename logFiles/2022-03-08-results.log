@@ -1,0 +1,478 @@
+2022-03-08 10:36:00 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:36:00 info: Datos de entrada
+2022-03-08 10:36:00 info: {"IdUsuario":"JLOPEZ","IdConcesionario":0,"Nombre":"","Paterno":"","Materno":"","RFC":"","CURP":"","IdIdentificacion":"","FolioIdentificacion":"","FechaNacimiento":"","TipoPersona":"","Genero":"","EstadoCivil":"","Calle":"","Exterior":"","Interior":"","IdColonia":"","Telefono":"","Celular":"","email":"","IdVehiculo":"181","IdOperador":"270","Licencia":""}
+2022-03-08 10:36:00 info:  [registro.js] Atención: Verifique la información requerida.
+2022-03-08 10:36:46 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-estatus
+2022-03-08 10:36:46 info: Datos de entrada
+2022-03-08 10:36:46 info: {"IdUsuario":"JLOPEZ","IdVehiculo":"181","IdOperador":"270","Estatus":"I"}
+2022-03-08 10:36:46 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: cambioEstatusOperador 
+2022-03-08 10:36:46 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdCambioEstatusOperador 
+2022-03-08 10:36:46 info: query_str
+2022-03-08 10:36:46 info: CALL spOperadorEstatus(
+    270,  
+    181,
+    'I'
+    )
+2022-03-08 10:37:38 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:37:38 info: Datos de entrada
+2022-03-08 10:37:38 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A1","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-08 10:37:38 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:37:38 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:37:38 info: query_str
+2022-03-08 10:37:38 info: CALL spOperador(
+    NULL,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A1',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:38:59 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:38:59 info: Datos de entrada
+2022-03-08 10:38:59 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LEILA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A1","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"0","Licencia":"LICENCIA11"}
+2022-03-08 10:38:59 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:38:59 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:38:59 info: query_str
+2022-03-08 10:38:59 info: CALL spOperador(
+    NULL,  
+    'LEILA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A1',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:39:00 info:  [registro.js] Atención: Un vehículo no puede tener más de tres operadores. 
+2022-03-08 10:39:26 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:39:26 info: Datos de entrada
+2022-03-08 10:39:26 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LULU","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A1","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"273","Licencia":"LICENCIA11"}
+2022-03-08 10:39:26 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:39:26 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:39:26 info: query_str
+2022-03-08 10:39:26 info: CALL spOperador(
+    273,  
+    'LULU', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A1',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:39:56 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:39:56 info: Datos de entrada
+2022-03-08 10:39:56 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LINA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A1","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-08 10:39:56 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:39:56 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:39:56 info: query_str
+2022-03-08 10:39:56 info: CALL spOperador(
+    272,  
+    'LINA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A1',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:39:56 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Duplicate entry 'LOLL0101011A1' for key 'personas.RFC_UNIQUE'
+2022-03-08 10:40:11 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:40:11 info: Datos de entrada
+2022-03-08 10:40:11 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LINA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-08 10:40:11 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:40:11 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:40:11 info: query_str
+2022-03-08 10:40:11 info: CALL spOperador(
+    272,  
+    'LINA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:41:10 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-estatus
+2022-03-08 10:41:10 info: Datos de entrada
+2022-03-08 10:41:10 info: {"IdUsuario":"JLOPEZ","IdVehiculo":"181","IdOperador":"271","Estatus":"I"}
+2022-03-08 10:41:10 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: cambioEstatusOperador 
+2022-03-08 10:41:10 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdCambioEstatusOperador 
+2022-03-08 10:41:10 info: query_str
+2022-03-08 10:41:10 info: CALL spOperadorEstatus(
+    271,  
+    181,
+    'I'
+    )
+2022-03-08 10:43:13 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:43:13 info: Datos de entrada
+2022-03-08 10:43:13 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LINA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"272","Licencia":"LICENCIA11"}
+2022-03-08 10:43:13 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:43:13 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:43:13 info: query_str
+2022-03-08 10:43:13 info: CALL spOperador(
+    272,  
+    'LINA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:43:48 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:43:48 info: Datos de entrada
+2022-03-08 10:43:48 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LINA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"222222","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"270","Licencia":"LICENCIA11"}
+2022-03-08 10:43:48 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:43:48 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:43:48 info: query_str
+2022-03-08 10:43:48 info: CALL spOperador(
+    270,  
+    'LINA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '222222',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA11'
+    )
+2022-03-08 10:43:48 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Duplicate entry 'LOLL0101011A0' for key 'personas.RFC_UNIQUE'
+2022-03-08 10:53:14 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:53:14 info: Datos de entrada
+2022-03-08 10:53:14 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A0","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"270","Licencia":"LICENCIA33"}
+2022-03-08 10:53:14 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:53:14 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:53:14 info: query_str
+2022-03-08 10:53:14 info: CALL spOperador(
+    270,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A0',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA33'
+    )
+2022-03-08 10:53:14 info:  [registro.js] Atención: Ocurrió un error en la edición del Operador. Duplicate entry 'LOLL0101011A0' for key 'personas.RFC_UNIQUE'
+2022-03-08 10:53:34 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-edicion
+2022-03-08 10:53:34 info: Datos de entrada
+2022-03-08 10:53:34 info: {"IdUsuario":"JLOPEZ","IdConcesionario":"259","Nombre":"LOLA","Paterno":"LOPEZ","Materno":"LAGOS","RFC":"LOLL0101011A3","CURP":"","IdIdentificacion":"1","FolioIdentificacion":"333333","FechaNacimiento":"2022-01-03","TipoPersona":"F","Genero":"F","EstadoCivil":"C","Calle":"Calle 99","Exterior":"123","Interior":"interior x","IdColonia":"090111919","Telefono":"55555555","Celular":"04444444","email":"pruebaServicios@email.com","IdVehiculo":"181","IdOperador":"270","Licencia":"LICENCIA33"}
+2022-03-08 10:53:34 info:  [persona.dao.js] [Usuario: JLOPEZ] FUNCION: edicionOperador 
+2022-03-08 10:53:34 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdEditaOperador 
+2022-03-08 10:53:34 info: query_str
+2022-03-08 10:53:34 info: CALL spOperador(
+    270,  
+    'LOLA', 
+    'LOPEZ',
+    'LAGOS',
+    'LOLL0101011A3',
+    NULL,
+    1,
+    '333333',
+    '2022-01-03',
+    'F',
+    'F',
+    'C',
+    'Calle 99',
+    '123',
+    'interior x', 
+    '090111919',
+    '55555555',
+    '04444444',
+    'pruebaServicios@email.com',
+    259,
+    181,
+    'LICENCIA33'
+    )
+2022-03-08 11:16:22 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-rfc
+2022-03-08 11:16:22 info:  [persona.dao.js]  FUNCION: consultaOperadorRFC
+2022-03-08 11:16:22 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadorRFC 
+2022-03-08 11:16:22 info: CALL spConsultaOperadorRFC('APMT220103X3W')
+2022-03-08 11:16:39 info:  [registro.js] [Usuario: JLOPEZ] METODO: operador-rfc
+2022-03-08 11:16:39 info:  [persona.dao.js]  FUNCION: consultaOperadorRFC
+2022-03-08 11:16:39 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadorRFC 
+2022-03-08 11:16:39 info: CALL spConsultaOperadorRFC('LOLL0101011A3')
+2022-03-08 11:17:40 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:17:40 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:17:40 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:17:40 info: CALL spConsultaDocumentacionRegistro(181)
+2022-03-08 11:17:54 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:17:54 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:17:54 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:17:54 info: CALL spConsultaDocumentacionRegistro(182)
+2022-03-08 11:18:04 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:18:04 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:18:04 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:18:04 info: CALL spConsultaDocumentacionRegistro(184)
+2022-03-08 11:20:52 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:20:52 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:20:52 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:20:52 info: CALL spConsultaDocumentacionRegistro(184)
+2022-03-08 11:21:31 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:21:31 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:21:31 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:21:31 info: CALL spConsultaDocumentacionRegistro(184)
+2022-03-08 11:22:05 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:22:05 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:22:05 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:22:05 info: CALL spConsultaDocumentacionRegistro(182)
+2022-03-08 11:22:14 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:22:14 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:22:14 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:22:14 info: CALL spConsultaDocumentacionRegistro(181)
+2022-03-08 11:25:54 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:25:54 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:25:54 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:25:54 info: CALL spConsultaDocumentacionRegistro(181)
+2022-03-08 11:26:02 info:  [documentacion.js] [Usuario: JLOPEZ] METODO: documentos-contrato
+2022-03-08 11:26:02 info:  [documentacion.dao.js]  FUNCION: consultaDocumentosRegistro
+2022-03-08 11:26:02 info:  [documentacion.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaDocumentosRegistro 
+2022-03-08 11:26:02 info: CALL spConsultaDocumentacionRegistro(184)
+2022-03-08 14:09:10 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:09:10 info:  [registro.js] Atención: El IdVehiculo es requerido.
+2022-03-08 14:09:15 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:09:15 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:09:15 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:09:15 info: CALL spConsultaOperadores(181)
+2022-03-08 14:11:03 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:11:03 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:11:03 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:11:03 info: CALL spConsultaOperadores(181)
+2022-03-08 14:12:19 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:12:19 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:12:19 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:12:19 info: CALL spConsultaOperadores(1818)
+2022-03-08 14:12:19 info:  [registro.js] Atención: undefined
+2022-03-08 14:13:14 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:13:14 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:13:14 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:13:14 info: CALL spConsultaOperadores(1818)
+2022-03-08 14:13:20 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:13:20 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:13:20 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:13:20 info: CALL spConsultaOperadores(181)
+2022-03-08 14:13:42 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:13:42 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:13:42 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:13:42 info: CALL spConsultaOperadores(a)
+2022-03-08 14:13:42 error: Se presentó un error en BdConsultaOperadoresVehiculos: Error: Unknown column 'a' in 'field list'
+2022-03-08 14:13:42 error:  [registro.js] ERROR: Se presentó un error al consultar los Concesionarios del Vehículo indicado: Se presentó un error en BdConsultaOperadoresVehiculos: Error: Unknown column 'a' in 'field list'
+2022-03-08 14:13:55 info:  [registro.js] [Usuario: JLOPEZ] METODO: operadores-vehiculo
+2022-03-08 14:13:55 info:  [persona.dao.js]  FUNCION: consultaOperadoresVehiculo
+2022-03-08 14:13:55 info:  [persona.dao.js] [Usuario: JLOPEZ] METODO: BdConsultaOperadoresVehiculos 
+2022-03-08 14:13:55 info: CALL spConsultaOperadores(181)
+2022-03-08 17:38:21 info:  [login.js]  METODO: Login
+2022-03-08 17:38:21 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:38:21 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:38:21 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:38:21 info:  [login.js] Atención: Verifique la contraseña
+2022-03-08 17:38:21 info: hash------------------------------->
+2022-03-08 17:38:21 info: $2b$10$X69jh16Ky89b3iC7hm1ptOtj7lOpr.dJzK41rYKiZiqOWJeSGq26e
+2022-03-08 17:40:41 info:  [login.js]  METODO: Login
+2022-03-08 17:40:41 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:40:41 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:40:41 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:40:41 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerMenu 
+2022-03-08 17:40:41 info: query_str====================================>
+2022-03-08 17:40:41 info: CALL spConsultaMenu(7)
+2022-03-08 17:40:41 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:40:41 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerPrivilegios 
+2022-03-08 17:40:41 info: query_str====================================>
+2022-03-08 17:40:41 info: CALL spConsultaPrivilegiosPagina(7)
+2022-03-08 17:40:41 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:40:41 info: hash------------------------------->
+2022-03-08 17:40:41 info: $2b$10$/hkTSBtTuGpmNQt2qt8dLuXG2DSjLjF1QUsuzXWge07Qb524mbKrC
+2022-03-08 17:49:11 info:  [login.js]  METODO: Login
+2022-03-08 17:49:11 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:49:11 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:49:11 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:49:11 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerMenu 
+2022-03-08 17:49:11 info: query_str====================================>
+2022-03-08 17:49:11 info: CALL spConsultaMenu(7)
+2022-03-08 17:49:12 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:49:12 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerPrivilegios 
+2022-03-08 17:49:12 info: query_str====================================>
+2022-03-08 17:49:12 info: CALL spConsultaPrivilegiosPagina(7)
+2022-03-08 17:49:12 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:49:12 info: hash------------------------------->
+2022-03-08 17:49:12 info: $2b$10$ymvwTJvZAhnorM9uZ.9RpO/UK3p4YgYdMKSh5oKcINjpE./6SL8eq
+2022-03-08 17:52:11 info:  [login.js]  METODO: Login
+2022-03-08 17:52:11 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:52:11 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:52:11 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:52:11 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerMenu 
+2022-03-08 17:52:11 info: query_str====================================>
+2022-03-08 17:52:11 info: CALL spConsultaMenu(7)
+2022-03-08 17:52:12 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:52:12 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerPrivilegios 
+2022-03-08 17:52:12 info: query_str====================================>
+2022-03-08 17:52:12 info: CALL spConsultaPrivilegiosPagina(7)
+2022-03-08 17:52:12 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:52:12 info: hash------------------------------->
+2022-03-08 17:52:12 info: $2b$10$jB4YvNb.TktLIeBjQ70rJu8M3YtE1e0wr22dei2.c3ckfS1U8BCLa
+2022-03-08 17:53:02 info:  [login.js]  METODO: Login
+2022-03-08 17:53:02 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:53:02 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:53:02 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:53:02 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerMenu 
+2022-03-08 17:53:02 info: query_str====================================>
+2022-03-08 17:53:02 info: CALL spConsultaMenu(7)
+2022-03-08 17:53:02 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:53:02 info: 2
+2022-03-08 17:53:02 info: numMenu
+2022-03-08 17:53:02 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerPrivilegios 
+2022-03-08 17:53:02 info: query_str====================================>
+2022-03-08 17:53:02 info: CALL spConsultaPrivilegiosPagina(7)
+2022-03-08 17:53:03 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:53:03 info: hash------------------------------->
+2022-03-08 17:53:03 info: $2b$10$JYsPvMN2L0.FE8u4qjghq.OpfORTuaIAz.IJZ682/h8T4uPEb40c.
+2022-03-08 17:55:07 info:  [login.js]  METODO: Login
+2022-03-08 17:55:07 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:55:07 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:55:07 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:55:07 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerMenu 
+2022-03-08 17:55:07 info: query_str====================================>
+2022-03-08 17:55:07 info: CALL spConsultaMenu(7)
+2022-03-08 17:55:07 info: resultadoDatMenu
+2022-03-08 17:55:07 info: [{"IdMenu":17,"Nombre":"Registro","Icono":"local_taxi","Ruta":"./sidenav","IdMenuGrupo":15},{"IdMenu":22,"Nombre":"Revisión de Documentos","Icono":"rate_review","Ruta":"./sidenav/revisaDocumentos","IdMenuGrupo":17}]
+2022-03-08 17:55:07 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:55:07 info: numMenu
+2022-03-08 17:55:07 info: 2
+2022-03-08 17:55:07 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerPrivilegios 
+2022-03-08 17:55:07 info: query_str====================================>
+2022-03-08 17:55:07 info: CALL spConsultaPrivilegiosPagina(7)
+2022-03-08 17:55:07 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:55:07 info: hash------------------------------->
+2022-03-08 17:55:07 info: $2b$10$NHPyp0fsV0O1H.6sMgCbI.YWqKJk44ekOgzgonqkc4k.LXtxM9mF6
+2022-03-08 17:56:21 info:  [login.js]  METODO: Login
+2022-03-08 17:56:21 info:  [login.js]  METODO: Login, PARAMETROS DE ENTRADA --> Compliance
+2022-03-08 17:56:21 info:  [login.dao.js]  METODO: validarContrasenia
+2022-03-08 17:56:21 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerUsuario 
+2022-03-08 17:56:21 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerMenu 
+2022-03-08 17:56:21 info: query_str====================================>
+2022-03-08 17:56:21 info: CALL spConsultaMenu(7)
+2022-03-08 17:56:21 info: resultadoDatMenu
+2022-03-08 17:56:21 info: [{"IdMenu":15,"Nombre":"Concesionario","Icono":"people","Ruta":"./sidenav","IdMenuGrupo":null},{"IdMenu":17,"Nombre":"Registro","Icono":"local_taxi","Ruta":"./sidenav","IdMenuGrupo":15},{"IdMenu":22,"Nombre":"Revisión de Documentos","Icono":"rate_review","Ruta":"./sidenav/revisaDocumentos","IdMenuGrupo":17}]
+2022-03-08 17:56:21 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:56:21 info: numMenu
+2022-03-08 17:56:21 info: 3
+2022-03-08 17:56:21 info:  [login.dao.js] [Usuario: Compliance] METODO: BdObtenerPrivilegios 
+2022-03-08 17:56:21 info: query_str====================================>
+2022-03-08 17:56:21 info: CALL spConsultaPrivilegiosPagina(7)
+2022-03-08 17:56:21 info:  [login.dao.js]  METODO: validarContrasenia RESPUESTA: estatus = true, mensaje = Consulta exitosa, codigo =  AV200
+2022-03-08 17:56:21 info: hash------------------------------->
+2022-03-08 17:56:21 info: $2b$10$xplO.ilVgYqDtpO5ens8b.uKj1e0FxE9P0rKR8QsTyMtW3BSm.cYK
