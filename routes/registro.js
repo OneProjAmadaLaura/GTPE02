@@ -540,7 +540,6 @@ app.get('/operadores-vehiculo', verificaToken, (req, res) => {
                     });
 
                 })
-
         }
 
     } catch (err) {
