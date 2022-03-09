@@ -553,4 +553,5 @@ app.get('/operadores-vehiculo', verificaToken, (req, res) => {
     }
 });
 
+
 module.exports = app;
