@@ -75,4 +75,19 @@ const ConcesionarioRegModel = function(datConcesionario) {
     this.EditaDocumentos = datConcesionario.EditaDocumentos;
 };
 
-module.exports = { PersonaModel, ConcesionarioPreRegModel, ConcesionarioRegModel };
+const ConcesionarioInstalaModel = function(datConcesionario) {
+    this.IdConcesionario = datConcesionario.IdConcesionario;
+    this.NombreConcesionario = datConcesionario.NombreConcesionario;
+    this.FechaRegistro = datConcesionario.FechaRegistro;
+    this.IdVehiculo = datConcesionario.IdVehiculo;
+    this.Marca = datConcesionario.Marca;
+    this.Submarca = datConcesionario.Submarca;
+    this.Modelo = datConcesionario.Modelo;
+    this.Placa = datConcesionario.Placa;
+    this.TipoVehiculo = datConcesionario.TipoVehiculo;
+    this.TipoConvertidor = datConcesionario.TipoConvertidor;
+    this.FechaInstalacion = datConcesionario.FechaInstalacion;
+    this.ConfirmaCita = datConcesionario.ConfirmaCita;
+};
+
+module.exports = { PersonaModel, ConcesionarioPreRegModel, ConcesionarioRegModel, ConcesionarioInstalaModel };

@@ -3,7 +3,7 @@ const Logger = require('nodemon/lib/utils/log');
 
 const logger = require('../log/log');
 
-const { PersonaModel, ConcesionarioPreRegModel, ConcesionarioRegModel } = require('../models/persona.model');
+const { PersonaModel, ConcesionarioPreRegModel, ConcesionarioRegModel, ConcesionarioInstalaModel } = require('../models/persona.model');
 
 const utils = require('../utils/utils');
 
@@ -973,6 +973,68 @@ function consultaOperadoresVehiculo(entrada) {
     });
 }
 
+/* ********** Consulta de Concesionarios activos en registro   ********** */
+function consultaConcesionarioInstalacion(entrada) {
+    let etiquetaLOG = ruta + ' FUNCION: consultaConcesionarioInstalacion';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let concesionarios = [];
+        let numReg = 0;
+
+        BdConsultaConcesionarioInstalacion(entrada.IdUsuario)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                numReg = datos.length;
+
+                if (numReg > 0) {
+
+                    for (var i = 0, l = datos.length; i < l; i++) {
+
+                        let concesionario = new ConcesionarioInstalaModel({
+                            IdConcesionario: datos[i].IdConcesionario,
+                            NombreConcesionario: datos[i].NombreConcesionario,
+                            FechaRegistro: datos[i].FechaPreregistro,
+                            IdVehiculo: datos[i].IdVehiculo,
+                            Marca: datos[i].Marca,
+                            Submarca: datos[i].Submarca,
+                            Modelo: datos[i].Modelo,
+                            Placa: datos[i].Placa,
+                            TipoVehiculo: datos[i].TipoVehiculo,
+                            TipoConvertidor: datos[i].TipoConvertidor,
+                            FechaInstalacion: datos[i].FechaInstalacion,
+                            ConfirmaCita: (datos[i].ConfirmaCita == 1) ? true : false
+                        });
+
+                        concesionarios.push(concesionario);
+
+                    }
+                }
+
+                resul = {
+                    estatus: true,
+                    mensaje: 'Consulta exitosa',
+                    concesionarios
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al consultar los Concesionarios con Documentación Correcta: ${err}`);
+    });
+}
 
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
@@ -1437,6 +1499,41 @@ function BdConsultaOperadoresVehiculos(IdVehiculo, Usuario) {
 
 }
 
+/****************************************************************/
+function BdConsultaConcesionarioInstalacion(Usuario) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BdConsultaConcesionarioInstalacion `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        var query_str = `CALL spConsultaConcesionarioInstala()`;
+
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdConsultaConcesionarioInstalacion: ${err}`);
+    });
+
+}
 
 
 module.exports = {
@@ -1452,5 +1549,6 @@ module.exports = {
     edicionOperador,
     cambioEstatusOperador,
     consultaOperadorRFC,
-    consultaOperadoresVehiculo
+    consultaOperadoresVehiculo,
+    consultaConcesionarioInstalacion
 };
