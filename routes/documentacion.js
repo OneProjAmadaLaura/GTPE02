@@ -467,7 +467,6 @@ app.post('/documento-digitalizacion', verificaToken, upload.single('Documento'),
             mensaje: err.message,
             codigo: codRespuesta.error
         });
-
     }
 
 });
