@@ -12,6 +12,10 @@ const taller = require('../dao/taller.dao');
 
 const ruta = ' [citas.js] ';
 
+/****************************************************************/
+/**************    P R E   --   R E G I S T R O    **************/
+/****************************************************************/
+
 /****************************************************************************
  * Consulta - Talleres disponibles para cita
  ****************************************************************************/
@@ -599,6 +603,93 @@ app.get('/cita-id', verificaToken, (req, res) => {
                     });
 
                 })
+
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false,
+            error: err.message
+        });
+
+    }
+});
+
+
+/****************************************************************/
+/*********************    R E G I S T R O    ********************/
+/****************************************************************/
+
+/****************************************************************************
+ * Edición - Cita
+ ****************************************************************************/
+app.post('/cita-instalacion-registro', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-instalacion';
+        logger.info(etiquetaLOG);
+
+        let body = req.body;
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        let citaModel = new CitaModel({
+            IdUsuario: pUsuarioOperacion || '',
+            IdVehiculo: body.IdVehiculo || 0,
+            IdConcesionario: body.IdConcesionario || 0,
+            IdTaller: body.IdTaller || 0,
+            Fecha: body.Fecha || ''
+        });
+
+        logger.info('Datos de entrada');
+        logger.info(JSON.stringify(citaModel));
+
+        if (citaModel.IdVehiculo == 0 || citaModel.IdConcesionario == 0 || citaModel.IdTaller == 0 || citaModel.Fecha == '') {
+            mensaje = 'Verifique la información requerida.';
+
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+            cita.registraCita(citaModel)
+                .then(result => {
+
+                    let resultado = JSON.stringify(result);
+                    let datos = JSON.parse(resultado);
+
+                    ok = datos.estatus;
+                    mensaje = datos.mensaje + ' ' + datos.mensajeDet;
+
+                    if (!ok) {
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                    }
+
+                    res.json({
+                        estatus: ok,
+                        mensaje: datos.mensaje + ' ' + datos.mensajeDet,
+                        IdCita: datos.IdCita
+                    });
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                }).catch((err) => setImmediate(() => {
+                    res.json({
+                        estatus: false,
+                        error: err.message
+                    });
+                }));
 
         }
 

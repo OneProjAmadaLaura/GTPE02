@@ -9,6 +9,7 @@ const ParametrosModel = function(datParametro) {
     this.TipoPersona = datParametro.TipoPersona;
     this.CP = datParametro.CP;
     this.IdMarca = datParametro.IdMarca;
+    this.Placa = datParametro.Placa
 
 };
 

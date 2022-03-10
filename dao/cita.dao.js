@@ -9,6 +9,9 @@ const utils = require('../utils/utils');
 
 const ruta = ' [cita.dao.js] ';
 
+/****************************************************************/
+/**************    P R E   --   R E G I S T R O    **************/
+/****************************************************************/
 
 /* ********** Consulta las Disponibilidad    ********** */
 function consultaTallerDisponibilidad(entrada) {
@@ -120,7 +123,6 @@ function consultaHorasDisponibles(entrada) {
     });
 }
 
-
 /* ********** Consulta las Citas    ********** */
 function consultaCita(entrada) {
     let etiquetaLOG = ruta + ' FUNCION: consultaCita';
@@ -177,7 +179,7 @@ function consultaCita(entrada) {
     });
 }
 
-/* ********** Edita un Vehiculo   ********** */
+/* ********** Operaciones de la Cita   ********** */
 function registraCita(Entrada) {
 
     let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario}] METODO: registraCita `;
@@ -309,7 +311,6 @@ function dictaminaCita(Entrada) {
     });
 }
 
-
 /* ********** Consulta las Citas    ********** */
 function consultaCitaId(entrada) {
     let etiquetaLOG = ruta + ' FUNCION: consultaCitaId';
@@ -367,6 +368,55 @@ function consultaCitaId(entrada) {
     .catch((err) => {
         logger.error(err);
         throw (`Se presentó un error al consultar la cita: ${err}`);
+    });
+}
+
+
+/****************************************************************/
+/*********************    R E G I S T R O    ********************/
+/****************************************************************/
+
+/* **********  Registra cita de instalacion  ********** */
+function registraCitaInstalacion(Entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario}] METODO: registraCitaInstalacion `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let ok = false;
+        let mensaje = '';
+        let mensajeDet = '';
+        let IdCita = 0;
+
+        BdCitaInstalacion('R', Entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                ok = datos[0].resultado;
+                mensaje = datos[0].mensaje;
+                mensajeDet = datos[0].mensajeDet;
+                IdCitaInstalacion = datos[0].IdCitaInstalacion;
+                resul = {
+                    estatus: ok,
+                    mensaje,
+                    mensajeDet,
+                    IdCita
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al registrar la Cita para la instalación del convertidor: ${err}`);
     });
 }
 
@@ -563,6 +613,52 @@ function BdConsultaCitaId(IdCita, Usuario) {
 }
 
 /****************************************************************/
+/****************************************************************/
+function BdCitaInstalacion(Accion, Entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario }] METODO: BdCita `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let query_str = '';
+
+        query_str = `CALL spCita( '${Accion}',
+        ${utils.paramSP(Entrada.IdCita,'N')},  
+        ${utils.paramSP(Entrada.IdVehiculo,'N')},  
+        ${utils.paramSP(Entrada.Fecha,'S')},
+        ${utils.paramSP(Entrada.IdTaller,'N')}, 
+        ${utils.paramSP(Entrada.IdDictamen,'S')},
+        ${utils.paramSP(Entrada.Observaciones,'S')},
+        ${utils.paramSP(Entrada.IdConcesionario,'N')}
+        )`;
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdCita: ${err}`);
+    });
+
+}
+
 
 module.exports = {
     registraCita,
@@ -571,5 +667,6 @@ module.exports = {
     dictaminaCita,
     consultaTallerDisponibilidad,
     consultaHorasDisponibles,
-    consultaCitaId
+    consultaCitaId,
+    registraCitaInstalacion
 };

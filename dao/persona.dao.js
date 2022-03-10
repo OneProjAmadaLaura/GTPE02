@@ -908,7 +908,7 @@ function consultaOperadoresVehiculo(entrada) {
         let operadores = [];
         let numReg = 0;
 
-        BdConsultaOperadoresVehiculos(entrada.IdVehiculo, entrada.IdUsuario)
+        BdConsultaOperadoresVehiculos(entrada.Placa, entrada.IdUsuario)
             .then(function(rows) {
 
                 let resultado = JSON.stringify(rows);
@@ -922,6 +922,7 @@ function consultaOperadoresVehiculo(entrada) {
 
                         const operador = new PersonaModel({
                             IdOperador: datos[i].IdOperador,
+                            NombreCompleto: datos[i].Nombre + ' ' + datos[i].Paterno + ' ' + datos[i].Materno,
                             Nombre: datos[i].Nombre,
                             Paterno: datos[i].Paterno,
                             Materno: datos[i].Materno,
@@ -1464,7 +1465,7 @@ function BdConsultaOperadorRFC(RFC, Usuario) {
 }
 
 /****************************************************************/
-function BdConsultaOperadoresVehiculos(IdVehiculo, Usuario) {
+function BdConsultaOperadoresVehiculos(Placa, Usuario) {
 
     let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BdConsultaOperadoresVehiculos `;
     logger.info(etiquetaLOG);
@@ -1475,7 +1476,7 @@ function BdConsultaOperadoresVehiculos(IdVehiculo, Usuario) {
 
         const con = mysql.createConnection(configBD);
 
-        var query_str = `CALL spConsultaOperadores(${IdVehiculo})`;
+        var query_str = `CALL spConsultaOperadores('${Placa}')`;
 
         logger.info(query_str);
 

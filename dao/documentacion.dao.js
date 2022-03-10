@@ -135,8 +135,7 @@ function consultaDocumentosRegistro(entrada) {
                             Documento: datos[i].Documento,
                             NombreArchivo: datos[i].NombreArchivo,
                             Faltante: datos[i].Faltante,
-                            Revisado: datos[i].Revisado,
-                            Correcto: (datos[i].Correcto == true) ? true : false,
+                            Calificacion: datos[i].Calificacion,
                             Observaciones: datos[i].Observaciones
                         });
 
@@ -425,7 +424,7 @@ function BdVerificaDocumento(Parametro) {
         ${utils.paramSP(Parametro.IdVehiculo,'N')},  
         ${utils.paramSP(Parametro.IdDocumento,'N')}, 
         ${utils.paramSP(Parametro.IdUsuario,'S')},
-        ${utils.paramSP(Parametro.Correcto,'N')},
+        ${utils.paramSP(Parametro.Correcto,'B')},
         ${utils.paramSP(Parametro.Observaciones,'S')}
         )`;
 

@@ -3,6 +3,7 @@ const PersonaModel = function(datPersona) {
     this.IdConcesionario = datPersona.IdConcesionario;
     this.IdPropietario = datPersona.IdPropietario;
     this.IdPersona = datPersona.IdPersona;
+    this.NombreCompleto = datPersona.NombreCompleto;
     this.Nombre = datPersona.Nombre;
     this.Paterno = datPersona.Paterno;
     this.Materno = datPersona.Materno;

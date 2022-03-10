@@ -9,7 +9,7 @@ const DocumentoModel = function(datDocumento) {
     this.Faltante = datDocumento.Faltante;
     this.Estatus = datDocumento.Estatus;
     this.Imagen = datDocumento.Imagen;
-    this.Revisado = datDocumento.Revisado;
+    this.Calificacion = datDocumento.Calificacion;
     this.Correcto = datDocumento.Correcto;
     this.Observaciones = datDocumento.Observaciones;
 

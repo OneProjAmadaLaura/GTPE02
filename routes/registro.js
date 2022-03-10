@@ -494,11 +494,11 @@ app.get('/operadores-vehiculo', verificaToken, (req, res) => {
 
         const parametrosModel = new ParametrosModel({
             IdUsuario: pUsuarioOperacion || '',
-            IdVehiculo: req.query.IdVehiculo || ''
+            Placa: req.query.Placa || ''
         });
 
-        if (parametrosModel.IdVehiculo == '') {
-            mensaje = 'El IdVehiculo es requerido.';
+        if (parametrosModel.Placa == '') {
+            mensaje = 'La placa del vehículo es requerida.';
             logger.info(ruta + 'Atención: ' + mensaje);
             res.json({
                 estatus: false,
