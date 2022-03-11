@@ -622,5 +622,85 @@ app.get('/concesionario-instalacion', verificaToken, (req, res) => {
     }
 });
 
+/****************************************************************************
+ * Registro de fecha de instalacion del convertidor
+ ****************************************************************************/
+app.post('/instalacion', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: instalacion';
+        logger.info(etiquetaLOG);
+
+        let body = req.body;
+
+        let mensaje = '';
+        let ok = false;
+
+        let parametrosModel = new ParametrosModel({
+            IdVehiculo: body.IdVehiculo || 0,
+            IdConcesionario: body.IdConcesionario || 0,
+            FechaInstalacion: body.FechaInstalacion || '',
+            IdUsuario: req.usuario.IdUsuario || ''
+
+        });
+
+        logger.info('Datos de entrada');
+        logger.info(JSON.stringify(parametrosModel));
+
+        if (parametrosModel.IdVehiculo == 0 || parametrosModel.IdConcesionario == 0 || parametrosModel.FechaInstalacion == '') {
+            mensaje = 'Verifique la información requerida.';
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+            contrato.registraInstalacion(parametrosModel)
+                .then(result => {
+
+                    let resultado = JSON.stringify(result);
+                    let datos = JSON.parse(resultado);
+
+                    ok = datos.estatus;
+                    mensaje = datos.mensaje + ' ' + datos.mensajeDet;
+
+                    if (!ok) {
+
+                        logger.info(ruta + 'Atención: ' + mensaje);
+
+                    }
+
+                    res.json({
+                        estatus: ok,
+                        mensaje: datos.mensaje + ' ' + datos.mensajeDet
+                    });
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                }).catch((err) => setImmediate(() => {
+                    res.json({
+                        estatus: false,
+                        error: err.message
+                    });
+                }));
+
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false,
+            error: err.message
+        });
+
+    }
+});
+
 
 module.exports = app;

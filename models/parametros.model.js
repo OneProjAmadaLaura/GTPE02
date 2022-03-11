@@ -2,6 +2,7 @@ const ParametrosModel = function(datParametro) {
     this.IdUsuario = datParametro.IdUsuario;
     this.IdPersona = datParametro.IdPersona;
     this.IdVehiculo = datParametro.IdVehiculo;
+    this.IdConcesionario = datParametro.IdConcesionario;
     this.TipoConsulta = datParametro.TipoConsulta;
     this.Estatus = datParametro.Estatus;
     this.IdSindicato = datParametro.IdSindicato;
@@ -9,7 +10,8 @@ const ParametrosModel = function(datParametro) {
     this.TipoPersona = datParametro.TipoPersona;
     this.CP = datParametro.CP;
     this.IdMarca = datParametro.IdMarca;
-    this.Placa = datParametro.Placa
+    this.Placa = datParametro.Placa;
+    this.FechaInstalacion = datParametro.FechaInstalacion;
 
 };
 
