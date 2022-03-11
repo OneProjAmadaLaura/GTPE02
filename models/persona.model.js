@@ -87,7 +87,8 @@ const ConcesionarioInstalaModel = function(datConcesionario) {
     this.Placa = datConcesionario.Placa;
     this.TipoVehiculo = datConcesionario.TipoVehiculo;
     this.TipoConvertidor = datConcesionario.TipoConvertidor;
-    this.FechaInstalacion = datConcesionario.FechaInstalacion;
+    this.FechaCitaInstalacion = datConcesionario.FechaCitaInstalacion;
+    this.EstatusCitaInstalacion = datConcesionario.EstatusCitaInstalacion;
     this.ConfirmaCita = datConcesionario.ConfirmaCita;
 };
 

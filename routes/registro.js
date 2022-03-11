@@ -518,6 +518,8 @@ app.get('/operadores-vehiculo', verificaToken, (req, res) => {
                         res.json({
                             estatus: true,
                             mensaje,
+                            IdVehiculo: datos.IdVehiculo,
+                            IdConcesionario: datos.IdConcesionario,
                             operadores: datos.operadores
                         });
 
@@ -527,6 +529,8 @@ app.get('/operadores-vehiculo', verificaToken, (req, res) => {
                         res.json({
                             estatus: false,
                             mensaje,
+                            IdVehiculo: datos.IdVehiculo,
+                            IdConcesionario: datos.IdConcesionario,
                             operadores: []
                         });
                     }

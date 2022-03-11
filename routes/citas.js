@@ -623,11 +623,11 @@ app.get('/cita-id', verificaToken, (req, res) => {
 /****************************************************************/
 
 /****************************************************************************
- * Edición - Cita
+ * Edición - Cita para la instalacion
  ****************************************************************************/
-app.post('/cita-instalacion-registro', verificaToken, (req, res) => {
+app.post('/cita-convertidor-registro', verificaToken, (req, res) => {
     try {
-        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-instalacion';
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-convertidor-registro';
         logger.info(etiquetaLOG);
 
         let body = req.body;
@@ -657,7 +657,157 @@ app.post('/cita-instalacion-registro', verificaToken, (req, res) => {
                 mensaje
             });
         } else {
-            cita.registraCita(citaModel)
+            cita.registraCitaInstalacion(citaModel)
+                .then(result => {
+
+                    let resultado = JSON.stringify(result);
+                    let datos = JSON.parse(resultado);
+
+                    ok = datos.estatus;
+                    mensaje = datos.mensaje + ' ' + datos.mensajeDet;
+
+                    if (!ok) {
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                    }
+
+                    res.json({
+                        estatus: ok,
+                        mensaje: datos.mensaje + ' ' + datos.mensajeDet,
+                        IdCitaInstalacion: datos.IdCitaInstalacion
+                    });
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                }).catch((err) => setImmediate(() => {
+                    res.json({
+                        estatus: false,
+                        error: err.message
+                    });
+                }));
+
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false,
+            error: err.message
+        });
+
+    }
+});
+
+/****************************************************************************/
+app.post('/cita-convertidor-cancelacion', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-convertidor-cancelacion';
+        logger.info(etiquetaLOG);
+
+        let body = req.body;
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        let citaModel = new CitaModel({
+            IdUsuario: pUsuarioOperacion || '',
+            IdVehiculo: body.IdVehiculo || 0,
+            IdCita: body.IdCita || 0
+        });
+
+        if (citaModel.IdVehiculo == 0 || citaModel.IdCita == 0) {
+            mensaje = 'Verifique la información requerida.';
+
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+            cita.cancelaCitaInstalacion(citaModel)
+                .then(result => {
+
+                    let resultado = JSON.stringify(result);
+                    let datos = JSON.parse(resultado);
+
+                    ok = datos.estatus;
+                    mensaje = datos.mensaje + ' ' + datos.mensajeDet;
+
+                    if (!ok) {
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                    }
+
+                    res.json({
+                        estatus: ok,
+                        mensaje: datos.mensaje + ' ' + datos.mensajeDet,
+                        IdCita: datos.IdCita
+                    });
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                }).catch((err) => setImmediate(() => {
+                    res.json({
+                        estatus: false,
+                        error: err.message
+                    });
+                }));
+
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false,
+            error: err.message
+        });
+
+    }
+});
+
+/****************************************************************************/
+app.post('/cita-convertidor-confirma', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-convertidor-confirma';
+        logger.info(etiquetaLOG);
+
+        let body = req.body;
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        let citaModel = new CitaModel({
+            IdUsuario: pUsuarioOperacion || '',
+            IdVehiculo: body.IdVehiculo || 0,
+            IdCita: body.IdCita || 0
+        });
+
+        if (citaModel.IdVehiculo == 0 || citaModel.IdCita == 0) {
+            mensaje = 'Verifique la información requerida.';
+
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+            cita.cancelaCitaInstalacion(citaModel)
                 .then(result => {
 
                     let resultado = JSON.stringify(result);
