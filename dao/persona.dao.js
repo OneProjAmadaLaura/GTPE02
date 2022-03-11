@@ -897,7 +897,7 @@ function consultaOperadorRFC(entrada) {
     });
 }
 
-/* ********** busqueda de Concesionario por RFC   ********** */
+/* ********** busqueda de Operadores del vehículo  ********** */
 function consultaOperadoresVehiculo(entrada) {
     let etiquetaLOG = ruta + ' FUNCION: consultaOperadoresVehiculo';
     logger.info(etiquetaLOG);
@@ -918,46 +918,62 @@ function consultaOperadoresVehiculo(entrada) {
 
                 if (numReg > 0) {
 
-                    for (i = 0; i < numReg; i++) {
+                    if (datos[0].IdOperador > 0) {
+                        for (i = 0; i < numReg; i++) {
 
-                        const operador = new PersonaModel({
-                            IdOperador: datos[i].IdOperador,
-                            NombreCompleto: datos[i].Nombre + ' ' + datos[i].Paterno + ' ' + datos[i].Materno,
-                            Nombre: datos[i].Nombre,
-                            Paterno: datos[i].Paterno,
-                            Materno: datos[i].Materno,
-                            RFC: datos[i].RFC,
-                            CURP: datos[i].CURP,
-                            IdIdentificacion: datos[i].IdIdentificacion,
-                            FolioIdentificacion: datos[i].FolioIdentificacion,
-                            FechaNacimiento: datos[i].FechaNacimiento,
-                            TipoPersona: datos[i].TipoPersona,
-                            Genero: datos[i].Genero,
-                            EstadoCivil: datos[i].EstadoCivil,
-                            Calle: datos[i].Calle,
-                            Exterior: datos[i].Exterior,
-                            Interior: datos[i].Interior,
-                            IdColonia: datos[i].IdColonia,
-                            Colonia: datos[i].Colonia,
-                            CP: datos[i].CP,
-                            EntidadFederativa: datos[i].EntidadFederativa,
-                            Municipio: datos[i].Municipio,
-                            Telefono: datos[i].Telefono,
-                            Celular: datos[i].Celular,
-                            email: datos[i].email,
-                            Licencia: datos[i].Licencia,
-                            Estatus: datos[i].Estatus
-                        });
+                            const operador = new PersonaModel({
+                                IdOperador: datos[i].IdOperador,
+                                NombreCompleto: datos[i].Nombre + ' ' + datos[i].Paterno + ' ' + datos[i].Materno,
+                                Nombre: datos[i].Nombre,
+                                Paterno: datos[i].Paterno,
+                                Materno: datos[i].Materno,
+                                RFC: datos[i].RFC,
+                                CURP: datos[i].CURP,
+                                IdIdentificacion: datos[i].IdIdentificacion,
+                                FolioIdentificacion: datos[i].FolioIdentificacion,
+                                FechaNacimiento: datos[i].FechaNacimiento,
+                                TipoPersona: datos[i].TipoPersona,
+                                Genero: datos[i].Genero,
+                                EstadoCivil: datos[i].EstadoCivil,
+                                Calle: datos[i].Calle,
+                                Exterior: datos[i].Exterior,
+                                Interior: datos[i].Interior,
+                                IdColonia: datos[i].IdColonia,
+                                Colonia: datos[i].Colonia,
+                                CP: datos[i].CP,
+                                EntidadFederativa: datos[i].EntidadFederativa,
+                                Municipio: datos[i].Municipio,
+                                Telefono: datos[i].Telefono,
+                                Celular: datos[i].Celular,
+                                email: datos[i].email,
+                                Licencia: datos[i].Licencia,
+                                Estatus: datos[i].Estatus
+                            });
 
-                        operadores.push(operador);
+                            operadores.push(operador);
 
+                        }
+                    }
+                    resul = {
+                        estatus: true,
+                        IdVehiculo: datos[0].IdVehiculo,
+                        IdConcesionario: datos[0].IdConcesionario,
+                        mensaje: 'Consulta exitosa',
+                        operadores
                     }
 
-                }
-                resul = {
-                    estatus: true,
-                    mensaje: 'Consulta exitosa',
-                    operadores
+
+
+                } else {
+
+                    resul = {
+                        estatus: false,
+                        mensaje: 'No existe la placa indicada',
+                        IdVehiculo: 0,
+                        IdConcesionario: 0,
+                        operadores: []
+                    }
+
                 }
 
                 resolve(resul);
@@ -990,6 +1006,8 @@ function consultaConcesionarioInstalacion(entrada) {
 
                 let resultado = JSON.stringify(rows);
                 let datos = JSON.parse(resultado);
+                logger.info('resultado');
+                logger.info(resultado);
 
                 numReg = datos.length;
 
@@ -1008,7 +1026,8 @@ function consultaConcesionarioInstalacion(entrada) {
                             Placa: datos[i].Placa,
                             TipoVehiculo: datos[i].TipoVehiculo,
                             TipoConvertidor: datos[i].TipoConvertidor,
-                            FechaInstalacion: datos[i].FechaInstalacion,
+                            FechaCitaInstalacion: datos[i].FechaCitaInstalacion,
+                            EstatusCitaInstalacion: datos[i].EstatusCitaInstalacion,
                             ConfirmaCita: (datos[i].ConfirmaCita == 1) ? true : false
                         });
 

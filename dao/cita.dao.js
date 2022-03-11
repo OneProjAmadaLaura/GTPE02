@@ -387,7 +387,7 @@ function registraCitaInstalacion(Entrada) {
         let ok = false;
         let mensaje = '';
         let mensajeDet = '';
-        let IdCita = 0;
+        let IdCitaInstalacion = 0;
 
         BdCitaInstalacion('R', Entrada)
             .then(function(rows) {
@@ -403,7 +403,7 @@ function registraCitaInstalacion(Entrada) {
                     estatus: ok,
                     mensaje,
                     mensajeDet,
-                    IdCita
+                    IdCitaInstalacion
                 }
 
                 resolve(resul);
@@ -419,6 +419,51 @@ function registraCitaInstalacion(Entrada) {
         throw (`Se presentó un error al registrar la Cita para la instalación del convertidor: ${err}`);
     });
 }
+
+function cancelaCitaInstalacion(Entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario}] METODO: cancelaCitaInstalacion `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let ok = false;
+        let mensaje = '';
+        let mensajeDet = '';
+        let IdCitaInstalacion = 0;
+
+        BdCitaInstalacion('C', Entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                ok = datos[0].resultado;
+                mensaje = datos[0].mensaje;
+                mensajeDet = datos[0].mensajeDet;
+                IdCita = datos[0].IdCitaInstalacion;
+
+                resul = {
+                    estatus: ok,
+                    mensaje,
+                    mensajeDet,
+                    IdCitaInstalacion
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al cancelar la Cita: ${err}`);
+    });
+}
+
 
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
@@ -616,20 +661,19 @@ function BdConsultaCitaId(IdCita, Usuario) {
 /****************************************************************/
 function BdCitaInstalacion(Accion, Entrada) {
 
-    let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario }] METODO: BdCita `;
+    let etiquetaLOG = `${ ruta }[Usuario: ${Entrada.IdUsuario }] METODO: BdCitaInstalacion `;
     logger.info(etiquetaLOG);
 
     return new Promise(function(resolve, reject) {
 
         let query_str = '';
 
-        query_str = `CALL spCita( '${Accion}',
+        query_str = `CALL spCitaInstalacion( '${Accion}',
         ${utils.paramSP(Entrada.IdCita,'N')},  
         ${utils.paramSP(Entrada.IdVehiculo,'N')},  
         ${utils.paramSP(Entrada.Fecha,'S')},
-        ${utils.paramSP(Entrada.IdTaller,'N')}, 
-        ${utils.paramSP(Entrada.IdDictamen,'S')},
         ${utils.paramSP(Entrada.Observaciones,'S')},
+        ${utils.paramSP(Entrada.IdTaller,'N')}, 
         ${utils.paramSP(Entrada.IdConcesionario,'N')}
         )`;
 
@@ -654,11 +698,10 @@ function BdCitaInstalacion(Accion, Entrada) {
     })
 
     .catch((err) => {
-        throw (`Se presentó un error en BdCita: ${err}`);
+        throw (`Se presentó un error en BdCitaInstalacion: ${err}`);
     });
 
 }
-
 
 module.exports = {
     registraCita,
@@ -668,5 +711,6 @@ module.exports = {
     consultaTallerDisponibilidad,
     consultaHorasDisponibles,
     consultaCitaId,
-    registraCitaInstalacion
+    registraCitaInstalacion,
+    cancelaCitaInstalacion
 };
