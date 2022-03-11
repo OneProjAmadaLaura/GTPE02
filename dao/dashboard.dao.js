@@ -11,26 +11,28 @@ const ruta = ' [dashboard.dao.js] ';
 
 
 /* ********** Consulta las Disponibilidad    ********** */
-function consultaCitasXTipoVehiculo() {
-    let etiquetaLOG = ruta + ' FUNCION: consultaCitasXTipoVehiculo';
+function consultaElementoDashboard(entrada) {
+    let etiquetaLOG = ruta + ' FUNCION: consultaElementoDashboard' ;
     logger.info(etiquetaLOG);
 
     return new Promise(function(resolve, reject) {
 
         let resul = [];
         let numReg = 0;
-
-        BdConsultaDasboardPreregistro()
+        
+        
+        BdConsultaElementoDasboard(entrada)
             .then(function(rows) {
 
                 let data = JSON.stringify(rows);
                 let datos = JSON.parse(data);
                 numReg = datos.length;
-                let msg= (datos.length>0 ? datos.length + "Consulta extosa" : "No hay datos") ;
+                let msg= (datos.length>0 ?  "Consulta extosa "   : "No hay datos") ;
                 
                 resul = {
                     estatus: true,
-                    mensaje: 'Consulta exitosa',
+                    mensaje: msg,
+                    elementos: numReg,
                     datos
                 }
 
@@ -53,10 +55,10 @@ function consultaCitasXTipoVehiculo() {
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
 /****************************************************************/
-function BdConsultaDasboardPreregistro() {
+function BdConsultaElementoDasboard(IdConsulta) {
 
-    //let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: function BdConsultaDasboardPreregistro() {
-    let etiquetaLOG = `${ ruta }[Usuario: ] METODO: function BdConsultaDasboardPreregistro() {
+    //let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: function BdConsultaElementoDasboard() {
+    let etiquetaLOG = `${ ruta }[Usuario: ] METODO: function BdConsultaElementoDasboard(${IdConsulta}) {
         `;
     logger.info(etiquetaLOG);
 
@@ -66,8 +68,8 @@ function BdConsultaDasboardPreregistro() {
 
         const con = mysql.createConnection(configBD);
 
-        var query_str = `CALL spDashPreregistro(1)`;
-
+        var query_str = `CALL spDashPreregistro(${IdConsulta})`;
+        
         logger.info(query_str);
 
         con.query(query_str, function(err, rows) {
@@ -80,12 +82,12 @@ function BdConsultaDasboardPreregistro() {
             }
 
             con.end();
-            resolve(rows[0]);
+            resolve(rows);
         });
     })
 
     .catch((err) => {
-        throw (`Se presentó un error en BdConsultaDasboardPreregistro: ${err}`);
+        throw (`Se presentó un error en BdConsultaElementoDasboard: ${err}`);
     });
 
 }
@@ -94,5 +96,5 @@ function BdConsultaDasboardPreregistro() {
 
 
 module.exports = {
-    consultaCitasXTipoVehiculo
+    consultaElementoDashboard
 };
