@@ -68,6 +68,49 @@ function consultaDatosContrato(entrada) {
     });
 }
 
+/* ********** Registra información de instalación ********** */
+function registraInstalacion(entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${entrada.IdUsuario}] FUNCION: registraInstalacion `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+
+        let estatus = false;
+        let mensaje = '';
+        let mensajeDet = '';
+
+        BdRegistraInstalacion(entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                estatus = datos[0].resultado;
+                mensaje = datos[0].mensaje;
+                mensajeDet = datos[0].mensajeDet;
+
+                resul = {
+                    estatus,
+                    mensaje,
+                    mensajeDet
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error al registrar la fecha de instalación: ${err}`);
+    });
+}
+
 
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
@@ -106,9 +149,54 @@ function BdConsultaDatosContrato(IdVehiculo, Usuario) {
     });
 
 }
-/****************************************************************/
 
+/****************************************************************/
+function BdRegistraInstalacion(entrada) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${entrada.IdUsuario}] METODO: BdRegistraInstalacion `;
+    logger.info(etiquetaLOG);
+
+    let query_str = '';
+
+    query_str = `CALL spConvertidorInstalacion(
+        ${utils.paramSP(entrada.IdVehiculo,'N')},
+        ${utils.paramSP(entrada.IdConcesionario,'N')},
+        ${utils.paramSP(entrada.FechaInstalacion,'S')},
+        ${utils.paramSP(entrada.IdUsuario,'S')}
+    )`;
+
+    logger.info('query_str');
+    logger.info(query_str);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        con.query(query_str, function(err, rows) {
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+
+        throw (`Se presentó un error en BdRegistraInstalacion: ${err}`);
+    });
+
+
+}
 
 module.exports = {
-    consultaDatosContrato
+    consultaDatosContrato,
+    registraInstalacion
 };

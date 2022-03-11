@@ -1030,7 +1030,8 @@ function consultaConcesionarioInstalacion(entrada) {
                             EstatusCitaInstalacion: datos[i].EstatusCitaInstalacion,
                             ConfirmaCita: (datos[i].ConfirmaCita == 1) ? true : false
                         });
-
+                        logger.info(JSON.stringify('concesionario'));
+                        logger.info(JSON.stringify(concesionario));
                         concesionarios.push(concesionario);
 
                     }
