@@ -73,4 +73,82 @@ app.get('/reporte-situacion-vehiculo', verificaToken, (req, res) => {
     }
 });
 
+/****************************************************************************
+ * Reporte -- Vehículos Convertidos  --spReporteVehiculosConvertidos
+ ****************************************************************************/
+app.get('/reporte-vehiculos-convertidos', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: reporte-vehiculos-convertidos';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        const parametrosModel = new ParametrosModel({
+            IdUsuario: pUsuarioOperacion || '',
+            TipoVehiculo: req.query.TipoVehiculo || '',
+            FechaInicio: req.query.FechaInicio || '',
+            FechaFin: req.query.FechaFin || ''
+        });
+
+        if (parametrosModel.TipoVehiculo == '') {
+            mensaje = 'El tipo de vehículo e requerido.';
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+
+            reportes.repVehiculosConvertidos(parametrosModel)
+                .then(result => {
+                    let resultado = JSON.stringify(result);
+                    let usuarioDat = JSON.parse(resultado);
+
+                    ok = usuarioDat.estatus;
+                    mensaje = usuarioDat.mensaje;
+
+                    if (ok) {
+
+                        res.json({
+                            estatus: true,
+                            mensaje,
+                            reporte: usuarioDat.reporte
+                        });
+
+                    } else {
+
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                        res.json({
+                            estatus: false,
+                            mensaje,
+                            reporte: []
+                        });
+                    }
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                })
+        }
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
+
+
 module.exports = app;

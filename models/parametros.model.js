@@ -12,6 +12,9 @@ const ParametrosModel = function(datParametro) {
     this.IdMarca = datParametro.IdMarca;
     this.Placa = datParametro.Placa;
     this.FechaInstalacion = datParametro.FechaInstalacion;
+    this.TipoVehiculo = datParametro.TipoVehiculo;
+    this.FechaInicio = datParametro.FechaInicio;
+    this.FechaFin = datParametro.FechaFin;
 
 };
 
