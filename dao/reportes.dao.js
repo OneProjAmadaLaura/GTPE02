@@ -138,6 +138,57 @@ function repVehiculosConvertidos(entrada) {
     });
 }
 
+/* ********** Reporte -- Vehículos Sin concluir contrato e instalación  ********** */
+function repVehiculosSinConcluir(entrada) {
+    // Situación Actual Concesionarios
+    let etiquetaLOG = ruta + ' FUNCION: repVehiculosSinConcluir';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let datosReporte = [];
+        let numReg = 0;
+
+        BdRepVehiculosSinConcluir(entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                datosReporte = JSON.parse(resultado);
+                numReg = datosReporte.length;
+
+                if (numReg > 0) {
+
+                    resul = {
+                        estatus: true,
+                        mensaje: 'Consulta exitosa',
+                        reporte: datosReporte
+                    }
+                } else {
+                    resul = {
+                        estatus: false,
+                        mensaje: 'No se encontró información',
+                        reporte: []
+                    }
+
+                }
+                resolve(resul);
+
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al obtener el reporte: ${err}`);
+    });
+}
+
+
+
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
 /****************************************************************/
@@ -222,5 +273,41 @@ function BdRepVehiculosConvertidos(Parametro) {
 
 /****************************************************************/
 
+function BdRepVehiculosSinConcluir(Parametro) {
 
-module.exports = { obtieneReporte1, repVehiculosConvertidos };
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Parametro.IdUsuario }] METODO: BdRepVehiculosSinConcluir `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let query_str = '';
+
+        query_str = `CALL spReporteUnidadesSinConcluir( )`;
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        con.query(query_str, function(err, rows, fields) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdRepVehiculosSinConcluir: ${err}`);
+    });
+
+}
+
+/****************************************************************/
+
+module.exports = { obtieneReporte1, repVehiculosConvertidos, repVehiculosSinConcluir };

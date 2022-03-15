@@ -1028,6 +1028,7 @@ function consultaConcesionarioInstalacion(entrada) {
                             TipoConvertidor: datos[i].TipoConvertidor,
                             FechaCitaInstalacion: datos[i].FechaCitaInstalacion,
                             EstatusCitaInstalacion: datos[i].EstatusCitaInstalacion,
+                            IdCitaInstalacion: datos[i].IdCitaInstalacion,
                             ConfirmaCita: (datos[i].ConfirmaCita == 1) ? true : false
                         });
                         logger.info(JSON.stringify('concesionario'));
