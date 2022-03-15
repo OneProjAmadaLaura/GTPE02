@@ -779,13 +779,14 @@ app.post('/cita-convertidor-cancelacion', verificaToken, (req, res) => {
     }
 });
 
-/****************************************************************************/
-app.post('/cita-convertidor-confirma', verificaToken, (req, res) => {
-    try {
-        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-convertidor-confirma';
-        logger.info(etiquetaLOG);
+/****************************************************************************
+ * Consulta Cita de instalación por ID
+ ****************************************************************************/
+app.get('/cita-instalacion-id', verificaToken, (req, res) => {
 
-        let body = req.body;
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: cita-instalacion-id';
+        logger.info(etiquetaLOG);
         // Del token
         let pUsuarioOperacion = req.usuario.IdUsuario;
 
@@ -794,37 +795,41 @@ app.post('/cita-convertidor-confirma', verificaToken, (req, res) => {
 
         let citaModel = new CitaModel({
             IdUsuario: pUsuarioOperacion || '',
-            IdVehiculo: body.IdVehiculo || 0,
-            IdCita: body.IdCita || 0
+            IdCitaInstalacion: req.query.IdCitaInstalacion || 0
         });
 
-        if (citaModel.IdVehiculo == 0 || citaModel.IdCita == 0) {
+        if (citaModel.IdCitaInstalacion == 0) {
             mensaje = 'Verifique la información requerida.';
-
             logger.info(ruta + 'Atención: ' + mensaje);
             res.json({
                 estatus: false,
                 mensaje
             });
         } else {
-            cita.cancelaCitaInstalacion(citaModel)
+            cita.consultaCitaInstalaId(citaModel)
                 .then(result => {
-
                     let resultado = JSON.stringify(result);
                     let datos = JSON.parse(resultado);
 
                     ok = datos.estatus;
-                    mensaje = datos.mensaje + ' ' + datos.mensajeDet;
+                    mensaje = datos.mensaje;
 
-                    if (!ok) {
+                    if (ok) {
+
+                        res.json({
+                            estatus: true,
+                            mensaje,
+                            citaInstalacion: datos.cita
+                        });
+
+                    } else {
+
                         logger.info(ruta + 'Atención: ' + mensaje);
+                        res.json({
+                            estatus: false,
+                            mensaje
+                        });
                     }
-
-                    res.json({
-                        estatus: ok,
-                        mensaje: datos.mensaje + ' ' + datos.mensajeDet,
-                        IdCita: datos.IdCita
-                    });
 
                 }, (err) => {
 
@@ -834,12 +839,7 @@ app.post('/cita-convertidor-confirma', verificaToken, (req, res) => {
                         mensaje: err
                     });
 
-                }).catch((err) => setImmediate(() => {
-                    res.json({
-                        estatus: false,
-                        error: err.message
-                    });
-                }));
+                })
 
         }
 

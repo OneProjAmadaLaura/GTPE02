@@ -9,6 +9,7 @@ const CitaModel = function(datCita) {
     this.Observaciones = datCita.Observaciones;
     this.Estatus = datCita.Estatus;
     this.FechaDictamen = datCita.FechaDictamen;
+    this.IdCitaInstalacion = datCita.IdCitaInstalacion;
 };
 
 const CitaIdModel = function(datCita) {

@@ -464,6 +464,64 @@ function cancelaCitaInstalacion(Entrada) {
     });
 }
 
+function consultaCitaInstalaId(entrada) {
+    let etiquetaLOG = ruta + ' FUNCION: consultaCitaInstalaId';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let cita = [];
+        let numReg = 0;
+
+        BdConsultaCitaInstalaId(entrada.IdCitaInstalacion, entrada.IdUsuario)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+
+                numReg = datos.length;
+
+                if (numReg > 0) {
+
+                    let citaId = new CitaIdModel({
+                        Taller: datos[0].Taller,
+                        Domicilio: datos[0].Domicilio,
+                        IdColonia: datos[0].IdColonia,
+                        Colonia: datos[0].Colonia,
+                        CP: datos[0].CP,
+                        Municipio: datos[0].Municipio,
+                        EntidadFederativa: datos[0].EntidadFederativa,
+                        Telefono: datos[0].Telefono,
+                        Contacto: datos[0].Contacto,
+                        Fecha: datos[0].Fecha,
+                        Hora: datos[0].Hora,
+                        Estatus: datos[0].Estatus
+                    });
+
+                    cita.push(citaId);
+
+                }
+
+                resul = {
+                    estatus: true,
+                    mensaje: 'Consulta exitosa',
+                    cita
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al consultar la cita: ${err}`);
+    });
+}
 
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
@@ -703,6 +761,42 @@ function BdCitaInstalacion(Accion, Entrada) {
 
 }
 
+/****************************************************************/
+function BdConsultaCitaInstalaId(IdCitaInstalacion, Usuario) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BdConsultaCitaInstalaId `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        var query_str = `CALL spConsultaCitaInstalaId(${IdCitaInstalacion})`;
+
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdConsultaCitaInstalaId: ${err}`);
+    });
+
+}
+
 module.exports = {
     registraCita,
     consultaCita,
@@ -712,5 +806,6 @@ module.exports = {
     consultaHorasDisponibles,
     consultaCitaId,
     registraCitaInstalacion,
-    cancelaCitaInstalacion
+    cancelaCitaInstalacion,
+    consultaCitaInstalaId
 };
