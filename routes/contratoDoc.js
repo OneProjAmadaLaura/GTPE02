@@ -76,7 +76,7 @@ app.get('/contratoDocumento', verificaToken, (req, res) => {
                         res.json({
                             estatus: true,
                             mensaje,
-                            archivo: contratosPDF+"Contrato_taxi_"+contratoData.datos[0].Placa+".pdf",
+                            archivo: "Contrato_taxi_"+contratoData.datos[0].Placa+".pdf",
                             datos: contratoData.datos
                         });
                     } catch (err) {
