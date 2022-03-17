@@ -298,7 +298,7 @@ app.get('/reporte-ahorro-periodo', verificaToken, (req, res) => {
 });
 
 /****************************************************************************
- * Reporte -- vehículos sin consumir cantidad de gas acordado  -- spReporteUnidadesSinConsumir
+ * Reporte -- Vehículos sin consumir cantidad de gas acordado  -- spReporteUnidadesSinConsumir
  ****************************************************************************/
 app.get('/reporte-vehiculos-noconsumen', verificaToken, (req, res) => {
     try {
@@ -370,5 +370,81 @@ app.get('/reporte-vehiculos-noconsumen', verificaToken, (req, res) => {
 
     }
 });
+
+/****************************************************************************
+ * Reporte -- Ventas, recaudación y ahorros por un periodo determinado -- spReporteVentasRecauda
+ ****************************************************************************/
+app.get('/reporte-ventas-recauda', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: reporte-ventas-recauda';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        const parametrosModel = new ParametrosModel({
+            IdUsuario: pUsuarioOperacion || '',
+            FechaInicio: req.query.FechaInicio || '',
+            FechaFin: req.query.FechaFin || ''
+        });
+
+        if (parametrosModel.FechaInicio == '' || parametrosModel.FechaFin == '') {
+            mensaje = 'Debe indicar el rango de fechas.';
+            logger.info(ruta + 'Atención: ' + mensaje);
+            res.json({
+                estatus: false,
+                mensaje
+            });
+        } else {
+
+            reportes.repVentasRecauda(parametrosModel)
+                .then(result => {
+                    let resultado = JSON.stringify(result);
+                    let usuarioDat = JSON.parse(resultado);
+
+                    ok = usuarioDat.estatus;
+                    mensaje = usuarioDat.mensaje;
+
+                    if (ok) {
+
+                        res.json({
+                            estatus: true,
+                            mensaje,
+                            reporte: usuarioDat.reporte
+                        });
+
+                    } else {
+
+                        logger.info(ruta + 'Atención: ' + mensaje);
+                        res.json({
+                            estatus: false,
+                            mensaje,
+                            reporte: []
+                        });
+                    }
+
+                }, (err) => {
+
+                    logger.error(ruta + 'ERROR: ' + err);
+                    res.json({
+                        estatus: false,
+                        mensaje: err
+                    });
+
+                })
+
+        }
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
 
 module.exports = app;
