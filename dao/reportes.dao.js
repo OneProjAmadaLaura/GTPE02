@@ -11,7 +11,6 @@ const ruta = ' [reportes.dao.js] ';
 
 /* ********** obtieneReporte1 -----  Situación Actual Concesionarios ********** */
 function obtieneReporte1(entrada) {
-    // Situación Actual Concesionarios
     let etiquetaLOG = ruta + ' FUNCION: obtieneReporte1';
     logger.info(etiquetaLOG);
 
@@ -91,7 +90,6 @@ function obtieneReporte1(entrada) {
 
 /* ********** Reporte -- Vehículos Convertidos  ********** */
 function repVehiculosConvertidos(entrada) {
-    // Situación Actual Concesionarios
     let etiquetaLOG = ruta + ' FUNCION: repVehiculosConvertidos';
     logger.info(etiquetaLOG);
 
@@ -140,7 +138,6 @@ function repVehiculosConvertidos(entrada) {
 
 /* ********** Reporte -- Vehículos Sin concluir contrato e instalación  ********** */
 function repVehiculosSinConcluir(entrada) {
-    // Situación Actual Concesionarios
     let etiquetaLOG = ruta + ' FUNCION: repVehiculosSinConcluir';
     logger.info(etiquetaLOG);
 
@@ -189,7 +186,7 @@ function repVehiculosSinConcluir(entrada) {
 
 /* ********** Reporte -- Ahorro de Concesionario o Propietario por perido  ********** */
 function repAhorroPeriodo(entrada) {
-    // Situación Actual Concesionarios
+
     let etiquetaLOG = ruta + ' FUNCION: repAhorroPeriodo';
     logger.info(etiquetaLOG);
 
@@ -236,9 +233,9 @@ function repAhorroPeriodo(entrada) {
     });
 }
 
-/* ********** Reporte -- Ahorro de Concesionario o Propietario por perido  ********** */
+/* ********** Reporte -- Vehículos que no consumen lo acordado en el contrato  ********** */
 function repVehiculosNoConsumen(entrada) {
-    // Situación Actual Concesionarios
+
     let etiquetaLOG = ruta + ' FUNCION: repVehiculosNoConsumen';
     logger.info(etiquetaLOG);
 
@@ -285,6 +282,54 @@ function repVehiculosNoConsumen(entrada) {
     });
 }
 
+/* ********** Reporte -- Ventas, recaudación y ahorros por un periodo determinado  ********** */
+function repVentasRecauda(entrada) {
+    // 
+    let etiquetaLOG = ruta + ' FUNCION: repVentasRecauda';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let datosReporte = [];
+        let numReg = 0;
+
+        BdRepVentasRecauda(entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                datosReporte = JSON.parse(resultado);
+                numReg = datosReporte.length;
+
+                if (numReg > 0) {
+
+                    resul = {
+                        estatus: true,
+                        mensaje: 'Consulta exitosa',
+                        reporte: datosReporte
+                    }
+                } else {
+                    resul = {
+                        estatus: false,
+                        mensaje: 'No se encontró información',
+                        reporte: []
+                    }
+
+                }
+                resolve(resul);
+
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al obtener el reporte: ${err}`);
+    });
+}
 
 /****************************************************************/
 /**************    B A S E     D E    D A T O S    **************/
@@ -487,10 +532,51 @@ function BdRepVehiculosNoConsumen(Parametro) {
 
 /****************************************************************/
 
+function BdRepVentasRecauda(Parametro) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Parametro.IdUsuario }] METODO: BdRepVentasRecauda `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let query_str = '';
+
+        query_str = `CALL spReporteVentasRecauda(${utils.paramSP(Parametro.FechaInicio,'S')}, ${utils.paramSP(Parametro.FechaFin,'S')})`;
+
+        logger.info('query_str');
+        logger.info(query_str);
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        con.query(query_str, function(err, rows, fields) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdRepVentasRecauda: ${err}`);
+    });
+
+}
+
+/****************************************************************/
+
 module.exports = {
     obtieneReporte1,
     repVehiculosConvertidos,
     repVehiculosSinConcluir,
     repAhorroPeriodo,
-    repVehiculosNoConsumen
+    repVehiculosNoConsumen,
+    repVentasRecauda
 };
