@@ -14,5 +14,6 @@ app.use(require('./citas'));
 app.use(require('./registro'));
 
 app.use(require('./dashboard'));   //OMDA
+app.use(require('./contratoDoc'));   //OMDA
 
 module.exports = app;

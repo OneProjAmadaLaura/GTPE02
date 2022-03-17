@@ -20,7 +20,7 @@ function consultaDatosContrato(entrada) {
         let contrato = [];
         let resul = [];
 
-        BdConsultaDatosContrato(entrada.IdVehiculo, entrada.IdUsuario)
+        BdConsultaDatosContrato([entrada.IdVehiculo, entrada.IdUsuario])
             .then(function(rows) {
 
                 let resultado = JSON.stringify(rows);
@@ -40,7 +40,7 @@ function consultaDatosContrato(entrada) {
                         TipoVehiculo: datos[0].TipoVehiculo
                     });
 
-                    logger.info(JSON.stringify(contratoDat));
+                    logger.info("consultaDatosContrato(): \n"+JSON.stringify(contratoDat));
                     contrato.push(contratoDat);
 
                     mensaje = 'Consulta exitosa'
@@ -108,6 +108,45 @@ function registraInstalacion(entrada) {
 
     .catch((err) => {
         throw (`Se presentó un error al registrar la fecha de instalación: ${err}`);
+    });
+}
+
+function informacionDocumentoContrato(entrada) {
+    let etiquetaLOG = ruta + ' FUNCION: informacionDocumentoContrato' ;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let numReg = 0;
+        
+        
+        BDInformacionDocumentoContrato(entrada.IdContrato, entrada.IdUsuario)
+            .then(function(rows) {
+
+                let data = JSON.stringify(rows);
+                let datos = JSON.parse(data);
+                numReg = datos.length;
+                let msg= (datos.length>0 ?  "Consulta extosa "   : "No hay datos") ;
+                
+                resul = {
+                    estatus: true,
+                    mensaje: msg,
+                    elementos: numReg,
+                    datos
+                }
+
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al consultar información para elaborar el Documento "Contrato" : ${err}`);
     });
 }
 
@@ -196,7 +235,44 @@ function BdRegistraInstalacion(entrada) {
 
 }
 
+/****************************************************************/
+/*                           OMDA                               */
+function BDInformacionDocumentoContrato( IdContrato, Usuario) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BDInformacionDocumentoContrato `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        var query_str = `CALL spConsultaInfContrato(${IdContrato})`;
+
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BDInformacionDocumentoContrato: ${err}`);
+    });
+}
+
 module.exports = {
     consultaDatosContrato,
-    registraInstalacion
+    registraInstalacion,
+    informacionDocumentoContrato
 };

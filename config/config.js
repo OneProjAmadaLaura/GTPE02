@@ -29,7 +29,8 @@ detErrC = ')';
 // ========== Rutas ========== //
 archCodQR = 'C:/ArchivosQR/';
 logDir = './logFiles';
-documentos = 'C:/ArchivosDocumentos/'
+documentos = 'C:/ArchivosDocumentos/';
+contratosPDF = 'C:/ContratosPDF/';
 
 // ========== Veces para encriptación ========== //
 saltRounds = 10;
