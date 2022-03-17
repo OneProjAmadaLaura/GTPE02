@@ -187,6 +187,103 @@ function repVehiculosSinConcluir(entrada) {
     });
 }
 
+/* ********** Reporte -- Ahorro de Concesionario o Propietario por perido  ********** */
+function repAhorroPeriodo(entrada) {
+    // Situación Actual Concesionarios
+    let etiquetaLOG = ruta + ' FUNCION: repAhorroPeriodo';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let datosReporte = [];
+        let numReg = 0;
+
+        BdRepAhorroPeriodo(entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                datosReporte = JSON.parse(resultado);
+                numReg = datosReporte.length;
+
+                if (numReg > 0) {
+
+                    resul = {
+                        estatus: true,
+                        mensaje: 'Consulta exitosa',
+                        reporte: datosReporte
+                    }
+                } else {
+                    resul = {
+                        estatus: false,
+                        mensaje: 'No se encontró información',
+                        reporte: []
+                    }
+
+                }
+                resolve(resul);
+
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al obtener el reporte: ${err}`);
+    });
+}
+
+/* ********** Reporte -- Ahorro de Concesionario o Propietario por perido  ********** */
+function repVehiculosNoConsumen(entrada) {
+    // Situación Actual Concesionarios
+    let etiquetaLOG = ruta + ' FUNCION: repVehiculosNoConsumen';
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let datosReporte = [];
+        let numReg = 0;
+
+        BdRepVehiculosNoConsumen(entrada)
+            .then(function(rows) {
+
+                let resultado = JSON.stringify(rows);
+                datosReporte = JSON.parse(resultado);
+                numReg = datosReporte.length;
+
+                if (numReg > 0) {
+
+                    resul = {
+                        estatus: true,
+                        mensaje: 'Consulta exitosa',
+                        reporte: datosReporte
+                    }
+                } else {
+                    resul = {
+                        estatus: false,
+                        mensaje: 'No se encontró información',
+                        reporte: []
+                    }
+
+                }
+                resolve(resul);
+
+
+            }).catch((err) => setImmediate(() => {
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al obtener el reporte: ${err}`);
+    });
+}
 
 
 /****************************************************************/
@@ -310,4 +407,90 @@ function BdRepVehiculosSinConcluir(Parametro) {
 
 /****************************************************************/
 
-module.exports = { obtieneReporte1, repVehiculosConvertidos, repVehiculosSinConcluir };
+function BdRepAhorroPeriodo(Parametro) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Parametro.IdUsuario }] METODO: BdRepAhorroPeriodo `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let query_str = '';
+
+        query_str = `CALL spReporteAhorroPeriodo( ${utils.paramSP(Parametro.TipoPersona,'S')},  ${utils.paramSP(Parametro.IdSindicato,'N')})`;
+
+        logger.info('query_str');
+        logger.info(query_str);
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        con.query(query_str, function(err, rows, fields) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdRepAhorroPeriodo: ${err}`);
+    });
+
+}
+
+/****************************************************************/
+
+function BdRepVehiculosNoConsumen(Parametro) {
+
+    let etiquetaLOG = `${ ruta }[Usuario: ${ Parametro.IdUsuario }] METODO: BdRepVehiculosNoConsumen `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let query_str = '';
+
+        query_str = `CALL spReporteUnidadesSinConsumir( ${utils.paramSP(Parametro.IdSindicato,'N')})`;
+
+        logger.info('query_str');
+        logger.info(query_str);
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        con.query(query_str, function(err, rows, fields) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdRepVehiculosNoConsumen: ${err}`);
+    });
+
+}
+
+/****************************************************************/
+
+module.exports = {
+    obtieneReporte1,
+    repVehiculosConvertidos,
+    repVehiculosSinConcluir,
+    repAhorroPeriodo,
+    repVehiculosNoConsumen
+};
