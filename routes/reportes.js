@@ -446,5 +446,356 @@ app.get('/reporte-ventas-recauda', verificaToken, (req, res) => {
     }
 });
 
+/****************************************************************************
+ * Reporte R01 --Reporte Resumen Consumo Estaciones
+ ****************************************************************************/
+ app.get('/reporte-consumo-estaciones', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: reporte-consumo-estaciones';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        reportes.obtieneReporteR01(req.query.FechaIni, req.query.FechaFin)
+            .then(result => {
+                let resultado = JSON.stringify(result);
+                let usuarioDat = JSON.parse(resultado);
+
+                ok = usuarioDat.estatus;
+                mensaje = usuarioDat.mensaje;
+
+                if (ok) {
+
+                    res.json({
+                        estatus: true,
+                        mensaje,
+                        reporte: usuarioDat.reporte
+                    });
+
+                } else {
+
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
+/****************************************************************************
+ * Reporte R02 --Reporte Contratos sin cita instalacion
+ ****************************************************************************/
+ app.get('/reporte-contratos-sin-cita', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: reporte-contratos-sin-cita';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        reportes.obtieneReporteR02()
+            .then(result => {
+                let resultado = JSON.stringify(result);
+                let usuarioDat = JSON.parse(resultado);
+
+                ok = usuarioDat.estatus;
+                mensaje = usuarioDat.mensaje;
+
+                if (ok) {
+
+                    res.json({
+                        estatus: true,
+                        mensaje,
+                        reporte: usuarioDat.reporte
+                    });
+
+                } else {
+
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
+
+/****************************************************************************
+ * Reporte R03 --Reporte Analisis Situaciones Citas
+ ****************************************************************************/
+ app.get('/reporte-analisis-sit-citas', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: Reporte Analisis Situaciones Citas';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        reportes.obtieneReporteR03(req.query.FechaIni, req.query.FechaFin)
+            .then(result => {
+                let resultado = JSON.stringify(result);
+                let usuarioDat = JSON.parse(resultado);
+
+                ok = usuarioDat.estatus;
+                mensaje = usuarioDat.mensaje;
+
+                if (ok) {
+
+                    res.json({
+                        estatus: true,
+                        mensaje,
+                        reporte: usuarioDat.reporte
+                    });
+
+                } else {
+
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
+
+/****************************************************************************
+ * Reporte R04 --Consumo litros completos con aportación del Ahorro
+ ****************************************************************************/
+ app.get('/reporte-consumo-lt-ahorro', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: Consumo litros completos con aportación del Ahorro';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        reportes.obtieneReporteR04(req.query.Fecha)
+            .then(result => {
+                let resultado = JSON.stringify(result);
+                let usuarioDat = JSON.parse(resultado);
+
+                ok = usuarioDat.estatus;
+                mensaje = usuarioDat.mensaje;
+
+                if (ok) {
+
+                    res.json({
+                        estatus: true,
+                        mensaje,
+                        reporte: usuarioDat.reporte
+                    });
+
+                } else {
+
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
+
+/****************************************************************************
+ * Reporte R05 --Consumo litros incompletos
+ ****************************************************************************/
+ app.get('/reporte-consumo-lt-incompletos', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: Consumo litros incompletos';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        reportes.obtieneReporteR05(req.query.Fecha)
+            .then(result => {
+                let resultado = JSON.stringify(result);
+                let usuarioDat = JSON.parse(resultado);
+
+                ok = usuarioDat.estatus;
+                mensaje = usuarioDat.mensaje;
+
+                if (ok) {
+
+                    res.json({
+                        estatus: true,
+                        mensaje,
+                        reporte: usuarioDat.reporte
+                    });
+
+                } else {
+
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
+
+/****************************************************************************
+ * Reporte R06 --Beneficio Salud
+ ****************************************************************************/
+ app.get('/reporte-beneficio-salud', verificaToken, (req, res) => {
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: Beneficio Salud';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+
+        reportes.obtieneReporteR06(req.query.Fecha)
+            .then(result => {
+                let resultado = JSON.stringify(result);
+                let usuarioDat = JSON.parse(resultado);
+
+                ok = usuarioDat.estatus;
+                mensaje = usuarioDat.mensaje;
+
+                if (ok) {
+
+                    res.json({
+                        estatus: true,
+                        mensaje,
+                        reporte: usuarioDat.reporte
+                    });
+
+                } else {
+
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
 
 module.exports = app;
