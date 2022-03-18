@@ -20,7 +20,7 @@ function consultaDatosContrato(entrada) {
         let contrato = [];
         let resul = [];
 
-        BdConsultaDatosContrato([entrada.IdVehiculo, entrada.IdUsuario])
+        BdConsultaDatosContrato(entrada.IdVehiculo, entrada.IdUsuario)
             .then(function(rows) {
 
                 let resultado = JSON.stringify(rows);
@@ -40,7 +40,7 @@ function consultaDatosContrato(entrada) {
                         TipoVehiculo: datos[0].TipoVehiculo
                     });
 
-                    logger.info("consultaDatosContrato(): \n"+JSON.stringify(contratoDat));
+                    logger.info("consultaDatosContrato(): \n" + JSON.stringify(contratoDat));
                     contrato.push(contratoDat);
 
                     mensaje = 'Consulta exitosa'
@@ -112,23 +112,23 @@ function registraInstalacion(entrada) {
 }
 
 function informacionDocumentoContrato(entrada) {
-    let etiquetaLOG = ruta + ' FUNCION: informacionDocumentoContrato' ;
+    let etiquetaLOG = ruta + ' FUNCION: informacionDocumentoContrato';
     logger.info(etiquetaLOG);
 
     return new Promise(function(resolve, reject) {
 
         let resul = [];
         let numReg = 0;
-        
-        
+
+
         BDInformacionDocumentoContrato(entrada.IdContrato, entrada.IdUsuario)
             .then(function(rows) {
 
                 let data = JSON.stringify(rows);
                 let datos = JSON.parse(data);
                 numReg = datos.length;
-                let msg= (datos.length>0 ?  "Consulta extosa "   : "No hay datos") ;
-                
+                let msg = (datos.length > 0 ? "Consulta extosa " : "No hay datos");
+
                 resul = {
                     estatus: true,
                     mensaje: msg,
@@ -237,7 +237,7 @@ function BdRegistraInstalacion(entrada) {
 
 /****************************************************************/
 /*                           OMDA                               */
-function BDInformacionDocumentoContrato( IdContrato, Usuario) {
+function BDInformacionDocumentoContrato(IdContrato, Usuario) {
 
     let etiquetaLOG = `${ ruta }[Usuario: ${ Usuario }] METODO: BDInformacionDocumentoContrato `;
     logger.info(etiquetaLOG);
