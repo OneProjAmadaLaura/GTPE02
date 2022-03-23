@@ -637,7 +637,7 @@ app.post('/Modifica-Usuario', verificaToken, (req, res) => {
                     if (ok) {
 
                         res.json({
-                            ok,
+                            estatus: true,
                             mensaje,
                             contenido
                         });
@@ -646,7 +646,7 @@ app.post('/Modifica-Usuario', verificaToken, (req, res) => {
 
                         logger.info(ruta + 'Atención: ' + mensaje);
                         res.json({
-                            ok,
+                            estatus: false,
                             mensaje,
                             contenido
                         });
