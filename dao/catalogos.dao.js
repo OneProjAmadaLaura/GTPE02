@@ -10,8 +10,116 @@ const {PerfilesModel }  = require('../models/catalogos.model');
 const {EntidadesModel }  = require('../models/catalogos.model');
 const {HGasModel }  = require('../models/catalogos.model');
 const {HGasolinaModel }  = require('../models/catalogos.model');
+const {FormalizadosModel, FormalizadosModelQ  }  = require('../models/catalogos.model');
 
 const ruta = ' [catalogos.dao.js] ';
+
+function obtieneFormalizados(entrada) {
+
+    let etiquetaLOG = ruta + ' FUNCION: obtieneFormalizados' + entrada;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        let resul = [];
+        let hFormalizadosLista = [];
+        let numReg = 0;
+        let etiquetaLOG2 = ruta + ' FUNCION: obtieneFormalizados paso 2';
+        logger.info(etiquetaLOG2);
+    
+        BdConsultaFormalizados(entrada)
+            .then(function(rows) {
+
+                let etiquetaLOG3 = ruta + ' FUNCION: obtieneFormalizados paso 3';
+                logger.info(etiquetaLOG3);
+                let resultado = JSON.stringify(rows);
+                let datos = JSON.parse(resultado);
+                let etiquetaLOG3L = ruta + ' FUNCION: obtieneFormalizados paso 3L: ' + resultado;
+                logger.info(etiquetaLOG3L);
+
+                numReg = datos.length;
+
+                if (numReg > 0) {
+                    let etiquetaLOG4 = ruta + ' FUNCION: obtieneFormalizados paso 4, Numero de registros: ' + numReg;
+                    logger.info(etiquetaLOG4);
+             
+                    if (entrada.TipoConsulta == 'Lista') {
+                        for (var i = 0, l = datos.length; i < l; i++) {
+                            let etiquetaLOG4L = ruta + ' FUNCION: obtieneFormalizados paso 4L' + datos[i].Concesionario;
+                            logger.info(etiquetaLOG4L);
+                            var elemento = {
+                                IdUsuario: datos[i].IdUsuario,
+                                Nombre: datos[i].Nombre
+                            }
+
+                            hFormalizadosLista.push(elemento);
+                        }
+                    } else {
+                        let etiquetaLOG5 = ruta + ' FUNCION: obtieneFormalizados paso 5';
+                        logger.info(etiquetaLOG5);
+        
+                        for (var i = 0, l = datos.length; i < l; i++) {
+                            let etiquetaLOG5L = ruta + ' FUNCION: obtieneFormalizados paso 5L : ' + datos[i].Concesionario;
+                            logger.info(etiquetaLOG5L);
+                            let estado = false;
+
+                            let lFormalizados = new FormalizadosModel({
+                                IdContrato: datos[i].IdContrato,
+                                IdConcesionario: datos[i].IdConcesionario,
+                                NumeroConcesion: datos[i].NumeroConcesion,
+                                Concesionario: datos[i].Concesionario,
+                                email: datos[i].email,
+                                Telefono: datos[i].Telefono,
+                                FechaInicio: datos[i].FechaInicio,
+                                FechaTermino: datos[i].FechaTermino,
+                                ConsumoMes: datos[i].ConsumoMes,
+                                Periodos: datos[i].Periodos,
+                                FechaContrato: datos[i].FechaContrato,
+                                Empresa: datos[i].Empresa,
+                                TipoConvertidor: datos[i].TipoConvertidor,
+                                Convertidor: datos[i].Convertidor,
+                                TipoVehiculo: datos[i].TipoVehiculo,
+                                Vehiculo: datos[i].Vehiculo,
+                                LitrosConsumidos: datos[i].LitrosConsumidos,
+                                LitroXConsumir: datos[i].LitroXConsumir,
+                                PorcentajeConsumo: datos[i].PorcentajeConsumo
+                            });
+                            hFormalizadosLista.push(lFormalizados);
+
+                        }
+                    }
+
+                    resul = {
+                        estatus: true,
+                        mensaje: 'Consulta exitosa',
+                        hFormalizadosLista
+                    }
+
+                } else {
+
+                    resul = {
+                        estatus: true,
+                        mensaje: 'No se encontró información',
+                        hFormalizadosLista: []
+                    }
+
+                }
+                resolve(resul);
+
+            }).catch((err) => setImmediate(() => {
+                let etiquetaLOG99 = ruta + ' FUNCION: obtieneFormalizados paso 99';
+                logger.info(etiquetaLOG99);
+
+                return reject(err);
+            }));
+
+    })
+
+    .catch((err) => {
+        logger.error(err);
+        throw (`Se presentó un error al obtener la lista de formalizados: ${err}`);
+    });
+}
 
 /* ********** Obtiene historico de gasolina ********** */
 
@@ -1358,6 +1466,42 @@ function BdConsultaHGasolina(HGasolina) {
 
 }
 
+function BdConsultaFormalizados(entrada) {
+
+    let etiquetaLOG = `${ ruta }[] METODO: BdConsultaFormalizados `;
+    logger.info(etiquetaLOG);
+
+    return new Promise(function(resolve, reject) {
+
+        const mysql = require('mysql2');
+
+        const con = mysql.createConnection(configBD);
+
+        var query_str = `CALL spConsultaFormalizados('${entrada.IdEmpresa}')`;
+
+        logger.info('query_str');
+        logger.info(query_str);
+
+        con.query(query_str, function(err, rows, fields) {
+
+            if (err) {
+                if (err.message != 'connect ETIMEDOUT')
+                    con.end();
+
+                return reject(err);
+            }
+
+            con.end();
+            resolve(rows[0]);
+        });
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en BdConsultaFormalizados: ${err}`);
+    });
+
+}
+
 module.exports = { obtienePerfiles,
                    obtieneUsuarios,
                    consultaUsuario,
@@ -1369,4 +1513,5 @@ module.exports = { obtienePerfiles,
                    BdModificaUsuario,
                    obtieneEntidades,
                    obtieneHGas,
-                   obtieneHGasolina}
+                   obtieneHGasolina,
+                   obtieneFormalizados}
