@@ -17,7 +17,7 @@ const mimeTypes = require('mime-types');
 const storage = multer.diskStorage({
     destination: documentos,
     filename: function(req, file, cb) {
-        cb("", file.originalname.substring(0, file.originalname.length - 4) + '_' + Date.now() + '.pdf');
+        cb("", file.originalname.substring(0, file.originalname.indexOf('.')) + '_' + Date.now() + file.originalname.substring(file.originalname.indexOf('.')));
     }
 });
 
