@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const app = express();
 
 const logger = require('../log/log');
@@ -518,79 +519,59 @@ app.post('/Alta-Usuario', verificaToken, (req, res) => {
                 Intentos        : req.body.Intentos ,       
                 UltimaTransaccion: req.body.UltimaTransaccion
             });     
+            //Se obtiene contraseña -- para actualizar el dato en la BD
+            bcrypt.hash(usuarioModel.Contrasenia, saltRounds).then(function(hash) {
+                logger.info('hash-----------------x-------------->');
+                logger.info(hash);
+                usuarioModel.Contrasenia= hash;
+                logger.info(usuarioModel.Contrasenia);
+                //Se valida la contraseña
+                    validaContraseña(usuarioModel.Contrasenia, usuarioModel.Contrasenia)
+                    .then(function(continuar) {
 
-            let etiquetaLOG2 = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: Alta usuario 2 ' + usuarioModel.IdUsuario;
-            logger.info(etiquetaLOG2);
-            
+                        if (continuar) {
+                            catalogos.BdAltaUsuario(usuarioModel)
+                            .then(result => { 
+                
+                                let resultado = JSON.stringify(result);
+                                let pedazo = resultado.substring(1,resultado.length-1); 
+                                let listaDat = JSON.parse(pedazo);
 
-            catalogos.BdAltaUsuario(usuarioModel)
-                    .then(result => {
-                    let etiquetaLOGra = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO: Alta usuario 3 ';
-                    logger.info(etiquetaLOGra);
+                                ok = listaDat.resultado;
+                                Estatus = ok;
+                                mensaje = listaDat.mensaje;
+                                contenido = listaDat.IdUsuario;
 
-                    let resultado = JSON.stringify(result);
-                    let pedazo = resultado.substring(1,resultado.length-1); 
-                    let listaDat = JSON.parse(pedazo);
+                                if (ok) { res.json({ estatus:true, mensaje, contenido }); } 
+                                else    { res.json({ estatus:false, mensaje, contenido }); }
+                        }, (err) => { res.json({ estatus: false, mensaje: err }); })
 
-                    let etiquetaLOGra2 = ruta + '[ r e s u l t a d o: ' + resultado;
-                    logger.info(etiquetaLOGra2);
-                    let etiquetaLOGra3 = ruta + '[listaDat: ' + listaDat;
-                    logger.info(etiquetaLOGra3);
 
-                    ok = listaDat.resultado;
-                    Estatus = ok;
-                    mensaje = listaDat.mensaje;
-                    contenido = listaDat.IdUsuario;
+            } else {
+                resul = {
+                    estatus: false,
+                    mensaje: 'Verifique la contraseña',
+                    usuario: [],
+                    token
+                }
+                resolve(resul);
+            }
 
-                    let etiquetaLOGra4 = ruta + ' Ok: ' + ok + ' mensaje: ' + mensaje + ' contenido: ' + contenido ;
-                    logger.info(etiquetaLOGra4);
+        }).catch((err) => setImmediate(() => {
+            return reject(err);
+        }));
 
-                    if (ok) {
+            });
 
-                        res.json({
-                            estatus:true,
-                            mensaje,
-                            contenido
-                        });
-
-                    } else {
-
-                        logger.info(ruta + 'Atención: ' + mensaje);
-                        res.json({
-                            estatus:false,
-                            mensaje,
-                            contenido
-                        });
-                    }
-
-                }, (err) => {
-
-                    logger.error(ruta + 'ERROR: ' + err);
-                    res.json({
-                        estatus: false,
-                        mensaje: err
-                    });
-
-                })
         }
-        else
-        {
-            mensaje = 'Verifique la información requerida.';
-        logger.info(ruta + 'Atención: ' + mensaje);
-        res.json({
-            estatus: false,
-            mensaje
-        });
-    } 
+        else    {
+                res.json({ estatus: false, mensaje });
+                } 
 
     } catch (err) {
-        logger.error(ruta + 'ERROR: ' + err);
-
-        res.json({
-            estatus: false
-        });
-
-    }
+               logger.error(ruta + 'ERROR: ' + err);
+               res.json ({ estatus: false });
+                 }  
 });
 
 app.post('/Modifica-Usuario', verificaToken, (req, res) => {
@@ -656,7 +637,7 @@ app.post('/Modifica-Usuario', verificaToken, (req, res) => {
                     if (ok) {
 
                         res.json({
-                            ok,
+                            estatus: true,
                             mensaje,
                             contenido
                         });
@@ -665,7 +646,7 @@ app.post('/Modifica-Usuario', verificaToken, (req, res) => {
 
                         logger.info(ruta + 'Atención: ' + mensaje);
                         res.json({
-                            ok,
+                            estatus: false,
                             mensaje,
                             contenido
                         });
@@ -1034,5 +1015,22 @@ app.get('/cat-dictamen', verificaToken, (req, res) => {
 
     }
 });
+
+function validaContraseña(acceso, bd) {
+
+    return new Promise(function(resolve, reject) {
+
+        if (bcrypt.compareSync(acceso, bd)) {
+            return resolve(true);
+        } else {
+            return resolve(true);
+        }
+    })
+
+    .catch((err) => {
+        throw (`Se presentó un error en comparaContraseña: ${err}`);
+    });
+
+}
 
 module.exports = app;
