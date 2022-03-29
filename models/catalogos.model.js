@@ -17,6 +17,30 @@ const EntidadesModel = function(datEntidades) {
     this.Abreviacion = datEntidades.Abreviacion;
 };
 
+const FormalizadosModel = function(datFormalizados) {
+    this.IdContrato = datFormalizados.IdContrato;
+    this.IdConcesionario = datFormalizados.IdConcesionario;
+    this.NumeroConcesion = datFormalizados.NumeroConcesion;
+    this.Concesionario = datFormalizados.Concesionario;
+    this.email = datFormalizados.email;
+    this.Telefono = datFormalizados.Telefono;
+    this.FechaInicio = datFormalizados.FechaInicio;
+    this.FechaTermino = datFormalizados.FechaTermino;
+    this.ConsumoMes = datFormalizados.ConsumoMes;
+    this.Periodos = datFormalizados.Periodos;
+    this.FechaContrato = datFormalizados.FechaContrato;
+    this.Empresa = datFormalizados.Empresa;
+    this.TipoConvertidor = datFormalizados.TipoConvertidor;
+    this.Convertidor = datFormalizados.Convertidor;
+    this.TipoVehiculo = datFormalizados.TipoVehiculo;
+    this.Vehiculo = datFormalizados.Vehiculo;
+    this.LitrosConsumidos = datFormalizados.LitrosConsumidos;
+    this.LitroXConsumir = datFormalizados.LitroXConsumir;
+    this.PorcentajeConsumo = datFormalizados.PorcentajeConsumo;   
+};
+const FormalizadosModelQ = function(datFormalizados) {
+    this.IdEmpresa = datFormalizados.IdEmpresa;
+};
 const HGasModel = function(datHistoricoGas) {
     this.IdHistoricoGas = datHistoricoGas.IdHistoricoGas;	
     this.FechaAlta = datHistoricoGas.FechaAlta;			 
@@ -46,4 +70,6 @@ module.exports = { DictamenesModel,
                   PerfilesModel,
                   EntidadesModel,
                   HGasModel, 
-                  HGasolinaModel };
+                  HGasolinaModel,
+                  FormalizadosModel,
+                  FormalizadosModelQ };
