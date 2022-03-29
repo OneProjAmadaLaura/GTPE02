@@ -27,6 +27,8 @@ class pdfContratoTaxi {
     }
 
     getPdfContent() {
+        const fechaFirma = new Date()
+        
         this.content = [
             {text: [
                   { text: "CONTRATO DE MEMBRESÍA PROVISIONAL AL ", style: "textoContrato"},
@@ -763,9 +765,13 @@ class pdfContratoTaxi {
                 margin: [0,10]
             },
             { 
-                text: 
+                text: [
                     "LEIDO QUE FUE EL PRESENTE CONTRATO, y conformes con los términos y condiciones que lo integran, “LAS PARTES” lo firman de conformidad "+
-                    "en dos tantos, conservando cada una de ellas un ejemplar, en Isla Mujeres, Quinta Roo, México el día __ de _____ de 2022.",
+                    "en dos tantos, conservando cada una de ellas un ejemplar, en Isla Mujeres, Quinta Roo, México el día ", 
+                    { text: fechaFirma.getDay() , decoration: 'underline', bold: true}, " de ",
+                    { text: fechaFirma.toLocaleString('default', {month : 'long' }), decoration: 'underline', bold: true}, " de ",
+                    { text: fechaFirma.getFullYear(), decoration: 'underline', bold: true},"."
+                ],
                 style: 'textoContrato',
                 margin: [0,10]
             },
