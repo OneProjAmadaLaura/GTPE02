@@ -8,11 +8,86 @@ const { UsuarioFullModel } = require('../models/usuario.model');
 const { PerfilesModel } = require('../models/catalogos.model');
 const { EntidadesModel } = require('../models/catalogos.model');
 const { HGasModel,HGasolinaModel }  = require('../models/catalogos.model');
+const { FormalizadosModelQ }  = require('../models/catalogos.model');
+
 const { verificaToken } = require('../middleware/autenticacion');
 
 const catalogos = require('../dao/catalogos.dao');
 
 const ruta = ' [catalogos.js] ';
+
+/* ********** catalogos historico de gas ********** */
+
+app.get('/Formalizados', verificaToken, (req, res) => {
+
+    try {
+        let etiquetaLOG = ruta + '[Usuario: ' + req.usuario.IdUsuario + '] METODO:Formalizados';
+        logger.info(etiquetaLOG);
+        // Del token
+        let pUsuarioOperacion = req.usuario.IdUsuario;
+
+        let mensaje = '';
+        let ok = false;
+        let pEmpresa = req.query.Empresa;
+
+        const formalizadoModel = new FormalizadosModelQ({
+            IdEmpresa        : req.query.Empresa
+        });
+        logger.info(etiquetaLOG);
+        logger.info(etiquetaLOG);
+
+        catalogos.obtieneFormalizados(formalizadoModel)
+                .then(result => {
+                let etiquetaLOGra = ruta + '[Usuario: ' + pUsuarioOperacion + '] METODO: catalogos.obtieneFormalizados';
+                logger.info(etiquetaLOGra);
+
+                let resultado = JSON.stringify(result);
+                let listaDat = JSON.parse(resultado);
+
+                let etiquetaLOGra2 = ruta + '[resultado: ' + resultado;
+                logger.info(etiquetaLOGra2);        
+                let etiquetaLOGra3 = ruta + '[listaDat: ' + listaDat;
+                logger.info(etiquetaLOGra3);
+
+
+                ok = listaDat.estatus;
+                mensaje = listaDat.mensaje;
+                hFormalizadosLista = listaDat.hFormalizadosLista;
+
+                if (ok) {
+                    res.json({
+                        estatus: ok,
+                        mensaje: mensaje,
+                        hFormalizadosLista: hFormalizadosLista
+                    });
+
+                } else {
+                    logger.info(ruta + 'Atención: ' + mensaje);
+                    res.json({
+                        estatus: false,
+                        mensaje
+                    });
+                }
+
+            }, (err) => {
+                logger.error(ruta + 'ERROR: ' + err);
+                res.json({
+                    estatus: false,
+                    mensaje: err
+                });
+
+            })
+
+    } catch (err) {
+        logger.error(ruta + 'ERROR: ' + err);
+
+        res.json({
+            estatus: false
+        });
+
+    }
+});
+
 
 /* ********** catalogos historico de gas ********** */
 
